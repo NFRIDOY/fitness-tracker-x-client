@@ -8,8 +8,8 @@ export default function About() {
             <Header1>
                 About
             </Header1>
-            <section className="flex">
-                <div className="w-1/2">
+            <section className="flex flex-col md:flex-row lg:justify-between gap-10 mx-auto">
+                <div className="w-full md:w-1/2 text-center md:text-left ">
                     <h2 className="font-bold text-2xl underline">
                         Our Commitment
                     </h2>
@@ -37,8 +37,8 @@ export default function About() {
                         </ul>
                     </p>
                 </div>
-                <div className="w-1/2 text-right">
-                    <h2 className="font-bold text-2xl text-right underline">
+                <div className="w-full md:w-1/2 text-center md:text-right">
+                    <h2 className="font-bold text-2xl text-center md:text-right underline">
                         What Sets Us Apart
                     </h2>
                     <p >
