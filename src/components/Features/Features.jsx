@@ -1,6 +1,7 @@
 import { data } from "autoprefixer"
 import { useEffect, useState } from "react"
 import Container from "../Container/Container"
+import Header1 from "../Headers/Header1"
 
 
 export default function Features() {
@@ -16,9 +17,7 @@ export default function Features() {
 
     return (
         <div>
-            <Container>
-                <h1 className="text-center text-6xl font-bold">Features</h1>
-            </Container>
+            <Header1>Features</Header1>
             <div className="grid lg:grid-cols-3 gap-6">
                 {
                     features.map(feature => <div key={feature.feature_id} className="flex flex-col items-center border-b-4 border-green-400">
