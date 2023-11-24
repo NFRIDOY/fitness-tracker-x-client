@@ -1,0 +1,32 @@
+[
+    {
+        "feature_id": 1,
+        "feature_name": "Customized Workouts",
+        "feature_summary": "Tailored exercises based on individual fitness levels and specific goals."
+    },
+    {
+        "feature_id": 2,
+        "feature_name": "Nutritional Guidance",
+        "feature_summary": "Comprehensive dietary advice complementing workout routines for optimal results."
+    },
+    {
+        "feature_id": 3,
+        "feature_name": "Interactive Training",
+        "feature_summary": "Engaging sessions with live trainers or interactive apps for dynamic workouts."
+    },
+    {
+        "feature_id": 4,
+        "feature_name": "Rest and Recovery Plans",
+        "feature_summary": "Strategies and routines to maximize rest for effective muscle recovery."
+    },
+    {
+        "feature_id": 5,
+        "feature_name": "Goal Setting",
+        "feature_summary": "Establish clear fitness objectives and milestones to drive motivation and progress."
+    },
+    {
+        "feature_id": 6,
+        "feature_name": "Community Support",
+        "feature_summary": "Access to a supportive community for advice, motivation, and shared experiences."
+    }
+]
