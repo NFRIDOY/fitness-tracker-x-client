@@ -20,7 +20,7 @@ export default function Features() {
             <Header1>Features</Header1>
             <div className="grid lg:grid-cols-3 gap-6">
                 {
-                    features.map(feature => <div key={feature.feature_id} className="flex flex-col items-center border-b-4 border-green-400">
+                    features.map(feature => <div key={feature.feature_id} className="flex flex-col items-center justify-center text-center border-b-4 border-green-400">
                         <h1 className="text-3xl text-green-600">{feature.feature_name}</h1>
                         <h3 className="text-xl">
                             {feature.feature_summary}
