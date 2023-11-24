@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import toast from "react-hot-toast";
-import useAxios from "../hooks/useAxios";
+import useAxios from './../hook/useAxios';
 
 export const AuthContext = createContext(null)
 
