@@ -1,8 +1,8 @@
 import About from "../../components/About/About";
 import Banner from "../../components/Banner/Banner";
 import Features from "../../components/Features/Features";
-import Newsletter from "../../components/Newsletter/Newsletter";
 import Container from './../../components/Container/Container';
+import Newsletter from "../../components/Newsletter/Newsletter";
 
 
 export default function Home() {
