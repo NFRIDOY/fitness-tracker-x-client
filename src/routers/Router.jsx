@@ -5,6 +5,12 @@ import Home from "../pages/Home/Home";
 
 import Registration from "../pages/Registration/Registration";
 import Login from "../pages/Login/Login";
+import Gallery from './../pages/Gallery/Gallery';
+import Trainer from './../pages/Trainer/Trainer';
+import Classes from './../pages/Classes/Classes';
+import Dashboard from './../pages/Dashboard/Dashboard';
+import Profile from './../pages/Profile/Profile';
+import Community from "../pages/Community/Community";
 
 
 const router = createBrowserRouter([
@@ -18,6 +24,36 @@ const router = createBrowserRouter([
                 element: <Home></Home>,
                 errorElement: <Error></Error>,
             },
+            {
+                path: "/Gallery",
+                element: <Gallery></Gallery>,
+                errorElement: <Error></Error>,
+            },
+            {
+                path: "/Trainer",
+                element: <Trainer></Trainer>,
+                errorElement: <Error></Error>,
+            },
+            {
+                path: "/Classes",
+                element: <Classes></Classes>,
+                errorElement: <Error></Error>,
+            },
+            {
+                path: "/Dashboard",
+                element: <Dashboard></Dashboard>,
+                errorElement: <Error></Error>,
+            },
+            {
+                path: "/Community",
+                element: <Community></Community>,
+                errorElement: <Error></Error>,
+            },
+            {
+                path: "/Profile",
+                element: <Profile></Profile>,
+                errorElement: <Error></Error>,
+            },
             
             {
                 path: "/Registration",
@@ -28,13 +64,7 @@ const router = createBrowserRouter([
                 path: "/Login",
                 element: <Login></Login>,
                 errorElement: <Error></Error>,
-            },
-            // {
-            //     path: "/profile",
-            //     element: <PrivateRoute><Profile></Profile></PrivateRoute>,
-            //     errorElement: <Error></Error>,
-            // },
-
+            }
         ],
 
     },

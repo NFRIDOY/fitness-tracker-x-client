@@ -15,14 +15,17 @@ export default function Banner() {
                     Choose The Best<span className="text-green-400 font-extrabold"> Triner</span> <br />
                     For Your <span className="text-black  font-extrabold">Fitness!!!</span>
                 </h1>
+                <h4>
+
+                </h4>
                 <div className="relative left-44">
                     <div className="flex gap-x-6 justify-end pt-4">
-                        <Link to={"/Registration"} className="btn btn-success bg-green-400 text-black ">
-                            Registration
+                        <Link to={"/Classes"} className="btn btn-success bg-green-400 text-black ">
+                            Classes
                         </Link>
-                        <Link to={"/Login"} className="btn btn-ghost btn-outline  text-white ">
+                        {/* <Link to={"/Login"} className="btn btn-ghost btn-outline  text-white ">
                             Login
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>

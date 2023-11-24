@@ -95,7 +95,7 @@ export default function Navbar() {
                         </li>
                         <li className="w-fit">
                             <NavLink
-                                to="/AddJob"
+                                to="/Gallery"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
@@ -105,7 +105,7 @@ export default function Navbar() {
                         </li>
                         <li className="w-fit">
                             <NavLink
-                                to="/MyPostedJobs"
+                                to="/Trainer"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
@@ -115,7 +115,7 @@ export default function Navbar() {
                         </li>
                         <li>
                             <NavLink
-                                to="/MyBids"
+                                to="/Classes"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
@@ -125,7 +125,7 @@ export default function Navbar() {
                         </li>
                         <li className="w-fit">
                             <NavLink
-                                to="/BidRequests"
+                                to="/Dashboard"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
@@ -135,17 +135,17 @@ export default function Navbar() {
                         </li>
                         <li className="w-fit">
                             <NavLink
-                                to="/BidRequests"
+                                to="/Community"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
                             >
-                                Forums
+                                Community
                             </NavLink>
                         </li>
                         <li className="w-fit">
                             <NavLink
-                                to="/BidRequests"
+                                to="/Profile"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
