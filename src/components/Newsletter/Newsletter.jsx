@@ -1,12 +1,22 @@
+import useAxios from "../../hook/useAxios";
 import Container from "../Container/Container";
 
 export default function Newsletter() {
+    const axios = useAxios()
 
     const handleSubscriber = (e) => {
         e.preventDefault();
         const form = e.target;
+        const name = form.Name.value;
         const email = form.email.value;
-        const password = form.password.value;
+
+        const subscriber = {
+            name,
+            email,
+        }
+        console.log(subscriber)
+        axios.post('/subscribers', subscriber)
+        .then(res => console.log(res.data))
     }
 
     return (
@@ -16,7 +26,7 @@ export default function Newsletter() {
                     <div className="flex items-center">
                         <h1 className="text-7xl font-bold">
                             <span className="text-white text-left">Subscribe </span>
-                            <div className="text-white text-left">For News Letter </div>
+                            <div className="text-white text-left">For Newsletter </div>
                         </h1>
                     </div>
                     <form className="space-y-4 md:space-y-6 w-2/5" onSubmit={handleSubscriber}>

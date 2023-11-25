@@ -72,6 +72,11 @@ export default function AuthProvider({ children }) {
             } else {
                 // User is signed out
                 toast.error("User Signed Out!!!")
+                axios.get('/logout', currentUser)
+                .then(res => {
+                    console.log(res)
+                    console.log("Clear Token")
+                })
 
             }
         })

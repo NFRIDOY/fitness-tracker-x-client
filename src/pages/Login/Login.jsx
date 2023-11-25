@@ -15,7 +15,7 @@ export default function Login() {
         const routeName = location.pathname === '/Login' ? 'Login' : "";
 
         document.title = `Job Market X | ${routeName}`;
-        console.log(document.title)
+        // console.log(document.title)
     }, [])
 
     // get Access Token
@@ -23,9 +23,9 @@ export default function Login() {
     //     // axios.post('http://localhost:5000/api/v1/jwt', user, {withCredentials: true} )
     //     axios.post('/jwt', user )
     //         .then(res => {
-    //             console.log(res.data)
+    //             // console.log(res.data)
     //             if (res.data?.message) {
-    //                 console.log("Success ::> True")
+    //                 // console.log("Success ::> True")
     //                 // toast.success("Success")
     //                 toast.success("Got The Token")
     //             }
@@ -39,8 +39,8 @@ export default function Login() {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email)
-        console.log(password)
+        // console.log(email)
+        // console.log(password)
 
         signInEmailPass(email, password)
             .then((userCredential) => {
@@ -48,9 +48,9 @@ export default function Login() {
                 const user = userCredential.user;
                 setUser(user)
                 toast.success("User Login")
-                console.log(user)
-                // console.log(location.pathname)
-                console.log(location?.state)
+                // console.log(user)
+                // // console.log(location.pathname)
+                // console.log(location?.state)
                 // getToken()
                 navigate(location?.state ? location?.state : '/')
             })
@@ -58,8 +58,8 @@ export default function Login() {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 toast.error("User Login Failed")
-                console.log(" Error on CreateUser ", errorCode)
-                console.log(" Error on CreateUser ", errorMessage)
+                // console.log(" Error on CreateUser ", errorCode)
+                // console.log(" Error on CreateUser ", errorMessage)
             });
     }
 
@@ -74,11 +74,25 @@ export default function Login() {
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
                 setUser(user)
-                console.log(user)
+                // console.log(user)
                 // getToken()
                 toast.success("User Login Using Google")
-                // console.log(location.pathname)
-                console.log(location?.state)
+
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    // role: "member",
+
+                }
+                // console.log(userInfo)
+                axios.post('/users', userInfo)
+                .then(res =>{
+                    console.log(res.data);
+                    navigate('/');
+                })
+
+                // // console.log(location.pathname)
+                // console.log(location?.state)
                 navigate(location?.state ? location?.state : '/')
             }).catch((error) => {
                 // Handle Errors here.
@@ -90,8 +104,8 @@ export default function Login() {
                 // const credential = GoogleAuthProvider.credentialFromError(error);
                 // ...
                 toast.error("User Login Failed")
-                console.log(" Error on CreateUser ", errorCode)
-                console.log(" Error on CreateUser ", errorMessage)
+                // console.log(" Error on CreateUser ", errorCode)
+                // console.log(" Error on CreateUser ", errorMessage)
             });
     }
     return (
