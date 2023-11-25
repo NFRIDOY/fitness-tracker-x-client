@@ -44,7 +44,7 @@ export default function Registration() {
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName,
-                    // role: "member",
+                    role: "member"
 
                 }
                 // console.log(userInfo)
