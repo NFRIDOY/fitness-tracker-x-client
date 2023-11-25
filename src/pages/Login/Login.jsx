@@ -124,11 +124,11 @@ export default function Login() {
                             <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
                                 <div>
                                     <label htmlFor="email" className="block mb-2 text-sm font-medium  text-white">Your email</label>
-                                    <input type="email" name="email" id="email" className="border border-gray-300 sm:text-sm rounded-lg focus:ring-primary block w-full p-2.5 bg-gray-700  placeholder-gray-400 text-white  focus:border-blue-500" placeholder="name@mail.com" required="" />
+                                    <input type="email" name="email" id="email" className=" border border-gray  sm:text-sm rounded-lg   block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@mail.com" required="" />
                                 </div>
                                 <div>
                                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-white">Password</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border  sm:text-sm rounded-lg block w-full p-2.5 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="" />
+                                    <input type="password" name="password" id="password" placeholder="••••••••" className=" border border-gray  sm:text-sm rounded-lg   block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="" />
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-start">

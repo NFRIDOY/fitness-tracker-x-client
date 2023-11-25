@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import { useEffect } from "react";
+import useAxios from "../../hook/useAxios";
 
 export default function Registration() {
 
@@ -14,6 +15,7 @@ export default function Registration() {
 
     const { user, setUser, createUserEmailPass, updateUser, logOut } = useAuth()
     const navigate = useNavigate()
+    const axios = useAxios()
 
     const handleReg = e => {
         e.preventDefault();
@@ -29,9 +31,9 @@ export default function Registration() {
         // console.log(photoURL)
 
         createUserEmailPass(email, password)
-            .then((userCredential) => {
+            .then((result) => {
                 // Signed up 
-                const user = userCredential.user;
+                const user = result.user;
                 // console.log("User Creds", user)
                 console.log(user)
                 setUser(user)
@@ -39,6 +41,18 @@ export default function Registration() {
                 toast.success("User Created")
                 // console.log(user)
                 updateUser(name, photoURL)
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    // role: "member",
+
+                }
+                // console.log(userInfo)
+                axios.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
                 logOut()
                     .then(() => {
                         // Sign-out successful.
@@ -82,35 +96,35 @@ export default function Registration() {
                                     <div className="space-y-8">
                                         <div >
                                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
-                                            <input type="email" name="email" id="email" className="bg-gray-50 border border-gray  sm:text-sm rounded-lg   block w-full p-2.5 dark:bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@mail.com" required />
+                                            <input type="email" name="email" id="email" className=" border border-gray  sm:text-sm rounded-lg   block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@mail.com" required />
                                         </div>
                                         <div>
-                                            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                            <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-blue-500 focus:border-blue-500" required />
+                                            <label htmlFor="password" className="block mb-2 text-sm font-medium  text-white">Password</label>
+                                            <input type="password" name="password" id="password" placeholder="••••••••" className=" border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required />
                                         </div>
                                     </div>
                                     <div className="space-y-8">
                                         <div>
                                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
-                                            <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg   block w-full p-2.5 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name" required />
+                                            <input type="text" name="name" id="name" className=" border border-gray  sm:text-sm rounded-lg   block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name" required />
                                         </div>
 
                                         <div>
                                             <label htmlFor="photoURL" className="block mb-2 text-sm font-medium  text-white">Photo URL</label>
-                                            <input type="text" name="photoURL" id="photoURL" className="bg-gray-50 border border-gray-300  sm:text-sm rounded-lg  focus:border-primary block w-full p-2.5 600 placeholder-gray-400 text-white focus:ring-blue-500 dark:focus:border-blue-500" placeholder="URL" required />
+                                            <input type="text" name="photoURL" id="photoURL" className=" border border-gray  sm:text-sm rounded-lg   block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="URL" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-start">
                                         {/* <div className="flex items-center h-5">
-                                              <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary dark:ring-offset-gray-800" required />
+                                              <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300  bg-gray-700  border-gray-600  focus:ring-primary  ring-offset-gray-800" required />
                                           </div> */}
                                         {/* <div className="ml-3 text-sm">
-                                              <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
+                                              <label htmlFor="remember" className="text-gray-500  text-gray-300">Remember me</label>
                                           </div> */}
                                     </div>
-                                    {/* <a href="#" className="text-sm font-medium text-primary hover:underline dark:text-primary">Forgot password?</a> */}
+                                    {/* <a href="#" className="text-sm font-medium text-primary hover:underline  text-primary">Forgot password?</a> */}
                                 </div>
                                 <button type="submit" className="w-full text-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary hover:bg-primary focus:ring-primary-800">Registration</button>
 
