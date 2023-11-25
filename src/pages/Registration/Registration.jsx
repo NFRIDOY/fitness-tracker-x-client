@@ -43,7 +43,7 @@ export default function Registration() {
                 updateUser(name, photoURL)
                 const userInfo = {
                     email: result.user?.email,
-                    name: result.user?.displayName,
+                    name: name,
                     role: "member"
 
                 }

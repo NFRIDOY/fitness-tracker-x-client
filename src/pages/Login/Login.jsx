@@ -52,6 +52,19 @@ export default function Login() {
                 // // console.log(location.pathname)
                 // console.log(location?.state)
                 // getToken()
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    // role: "member",
+
+                }
+                // console.log(userInfo)
+                axios.post('/users', userInfo)
+                .then(res =>{
+                    console.log(res.data);
+                    navigate('/');
+                })
+                
                 navigate(location?.state ? location?.state : '/')
             })
             .catch((error) => {
