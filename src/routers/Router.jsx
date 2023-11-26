@@ -15,6 +15,7 @@ import GalleryPage from "../pages/GalleryPage/GalleryPage";
 import PrivateRoute from "./PrivateRoute";
 import BeATrainer from "../components/BeATrainer/BeATrainer";
 import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
+import TrainerDashbord from "../pages/TrainerDashbord/TrainerDashbord";
 
 
 const router = createBrowserRouter([
@@ -51,14 +52,31 @@ const router = createBrowserRouter([
                 // errorElement: <Error></Error>,
             },
             {
+                path: "/TrainerDashbord",
+                element: <PrivateRoute><TrainerDashbord></TrainerDashbord></PrivateRoute>,
+                // errorElement: <Error></Error>,
+                children: [
+                    // {
+                    //     path: "/TrainerDashbord",
+                    //     element: 
+                    // },
+                ]
+            },
+            {
                 path: "/Classes",
                 element: <Classes></Classes>,
                 // errorElement: <Error></Error>,
             },
             {
                 path: "/Dashboard",
-                element: <Dashboard></Dashboard>,
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
                 // errorElement: <Error></Error>,
+                children: [
+                    {
+                        path: "/Dashboard/TrainerDashbord",
+                        element: <PrivateRoute><TrainerDashbord></TrainerDashbord></PrivateRoute>,
+                    }
+                ]
             },
             {
                 path: "/Community",
