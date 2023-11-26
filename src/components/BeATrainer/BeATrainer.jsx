@@ -125,6 +125,9 @@ export default function BeATrainer() {
                         <div className="w-96 mx-auto">
                             {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-black ">Your Job Title</label> */}
                             <input type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold " placeholder="Submit" required="" />
+                            <button>
+                                Apply
+                            </button>
                         </div>
                     </form>
                 </div >
