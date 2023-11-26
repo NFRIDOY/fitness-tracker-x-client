@@ -18,23 +18,30 @@ export default function BeATrainer() {
         const age = form.age.value;
         const description = form.description.value;
         const skills = form.skills.value;
-        const minPrice = parseFloat(form.MinPrice.value);
-        const maxPrice = parseFloat(form.MaxPrice.value);
+        const week = form.AvalableTimeInAWeek.value;
+        const day = form.AvalableTimeInADay.value;
+        const fbLink = form.fbLink.value;
+        const experience = form.experience.value;
 
 
-        const newJob = {
+
+        const newTrainer = {
             email,
             fullName,
             age,
             description,
             skills,
-            minPrice,
-            maxPrice
+            week,
+            day,
+            fbLink,
+            experience,
+            role: 'member',
+            status: "pending"
         }
         // Output
-        console.log(newJob)
+        console.log(newTrainer)
         // http://localhost:5000/api/v1/addJobs
-        axios.post("/addJobs", newJob)
+        axios.post("/trainers", newTrainer)
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {
@@ -69,17 +76,17 @@ export default function BeATrainer() {
             {
                 user && <div className="w-1/2">
                     <form className="w-full space-y-3" onSubmit={handleAddTrainer}>
-                        <div className='flex'>
+                        <div className='flex gap-4 justify-between'>
                             <div className="w-full">
                                 <label htmlFor="FullName" className="block mb-2 text-sm font-medium text-black ">Full Name</label>
-                                <input type="text" name="FullName" id="FullName" className="input input-bordered w-full max-w-xs" placeholder="Job Title" required="" />
+                                <input type="text" name="FullName" id="FullName" className="input input-bordered w-full max-w-xs" placeholder="Full Name" required="" />
                             </div>
                             <div className="w-full">
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-black ">Your Email <span>(Read Only)</span></label>
                                 <input disabled defaultValue={user.email} type="email" name="email" id="email" className=" input input-bordered w-full max-w-xs" placeholder={user.email} required="" />
                             </div>
                         </div>
-                        <div className='flex'>
+                        <div className='flex gap-4'>
                             <div className="w-full">
                                 <label htmlFor="age" className="block mb-2 text-sm font-medium text-black ">Age</label>
                                 <input type="date" name="age" id="age" className=" input input-bordered w-full max-w-xs" placeholder="Job Title" required="" />
@@ -107,29 +114,30 @@ export default function BeATrainer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 justify-between">
                             <div className="w-1/2">
                                 <label htmlFor="AvalableTimeInAWeek" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Week</label>
                                 <input type="text" name="AvalableTimeInAWeek" id="AvalableTimeInAWeek" className=" input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Week" required="" />
+
                             </div>
                             <div className="w-1/2">
-                                <label htmlFor="AvalableTimeInADay" className="block mb-2 text-sm font-medium text-black ">Minimum Price</label>
+                                <label htmlFor="AvalableTimeInADay" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Day</label>
                                 <input type="text" name="AvalableTimeInADay" id="AvalableTimeInADay" className="input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Day" required="" />
                             </div>
                         </div>
-                        <div className='flex'>
+                        <div className='flex gap-4 justify-between'>
                             <div className="w-1/2">
-                                <label htmlFor="phone" className='block mb-2 text-sm font-medium text-black '>Phone Number</label>
-                                <input type="tel" id="phone" name="phone" className='input input-bordered w-full max-w-xs' required />
+                                <label htmlFor="fbLink" className='block mb-2 text-sm font-medium text-black '>Facebook Link</label>
+                                <input type="text" id="fbLink" name="fbLink" className='input input-bordered w-full max-w-xs' placeholder="Facebook Link" required />
                             </div>
-                            <div className="w-1/2">
+                            <div className="w-1/2 gap-4">
                                 <label htmlFor="experience" className='block mb-2 text-sm font-medium text-black '>Years of Experience</label>
-                                <input type="text" id="experience" name="experience" className='input input-bordered w-full max-w-xs' min="0" required />
+                                <input type="number" id="experience" name="experience" className='input input-bordered w-full max-w-xs' min="0" placeholder="Experience" required />
                             </div>
                         </div>
-                        <div className="w-full">
+                        <div className="w-96 mx-auto">
                             {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-black ">Your Job Title</label> */}
-                            <input type="submit" name="submit" id="submit" className="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary hover:bg-primary focus:ring-primary-800" placeholder="Job Title" required="" />
+                            <input type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold " placeholder="Submit" required="" />
                         </div>
                     </form>
                 </div >
