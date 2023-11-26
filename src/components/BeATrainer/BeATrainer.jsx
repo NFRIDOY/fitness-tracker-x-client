@@ -26,8 +26,6 @@ export default function BeATrainer() {
         const experience = form.experience.value;
         const photoURL = form.photoURL.value;
 
-
-
         const newTrainer = {
             email,
             fullName,

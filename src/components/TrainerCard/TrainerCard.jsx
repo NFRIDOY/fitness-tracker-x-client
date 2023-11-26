@@ -108,21 +108,26 @@ export default function TrainerCard({ trainerOne }) {
                 </div>
                 <div className="text-xl">
                     <p className="block font-sans antialiased font-light leading-relaxed text-blue-gray-900">
-                        Avalable On {week} Days
+                        Avalable On Days: {week} 
                     </p>
                     <p className="block font-sans antialiased font-light leading-relaxed text-blue-gray-900">
-                        Avalable On Time {day}
+                        Avalable On Time: {day}
                     </p>
 
                 </div>
-                <div className="p-0 mb-6">
+                <div className="p-0 mb-6 my-6">
                     <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit italic">
                         {description}
                     </p>
                 </div>
-                <Link to={fbLink} className="block font-sans text-base antialiased font-light leading-relaxed text-blue-gray-900">
-                    <FaFacebook></FaFacebook>
-                </Link>
+                <div className="flex justify-between items-center">
+                    <Link to={fbLink} className="block font-sans text-base antialiased font-light leading-relaxed text-blue-gray-900">
+                        <FaFacebook></FaFacebook>
+                    </Link>
+                    <Link to={`/Trainer/${_id}`} className="btn btn-primary text-white">
+                        Know More
+                    </Link>
+                </div>
             </div>
         </div>
     )

@@ -14,6 +14,7 @@ import Community from "../pages/Community/Community";
 import GalleryPage from "../pages/GalleryPage/GalleryPage";
 import PrivateRoute from "./PrivateRoute";
 import BeATrainer from "../components/BeATrainer/BeATrainer";
+import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
             {
                 path: "/Trainer",
                 element: <Trainer></Trainer>,
+                // errorElement: <Error></Error>,
+            },
+            {
+                path: "/Trainer/:id",
+                element: <TrainerDetails></TrainerDetails>,
+                // loader: ({perams}) => fetch()
                 // errorElement: <Error></Error>,
             },
             {

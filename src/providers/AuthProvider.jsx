@@ -58,13 +58,13 @@ export default function AuthProvider({ children }) {
                 // https://firebase.google.com/docs/reference/js/auth.user
                 const loggedInUser = { email: currentUser.email };
 
-                console.log(loggedInUser)
+                // console.log(loggedInUser)
 
                 axios.post('/jwt', loggedInUser)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data?.message) {
-                            console.log("Success ::> True. Token Set")
+                            // console.log("Success ::> True. Token Set")
                             // toast.success("Success")
                             toast.success("Got The Token")
                         }
