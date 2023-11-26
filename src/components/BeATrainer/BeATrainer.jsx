@@ -24,6 +24,7 @@ export default function BeATrainer() {
         const day = form.AvalableTimeInADay.value;
         const fbLink = form.fbLink.value;
         const experience = form.experience.value;
+        const photoURL = form.photoURL.value;
 
 
 
@@ -37,6 +38,7 @@ export default function BeATrainer() {
             day,
             fbLink,
             experience,
+            photoURL,
             role: 'member',
             status: "pending"
         }
@@ -123,6 +125,10 @@ export default function BeATrainer() {
                                     <label htmlFor="experience" className='block mb-2 text-sm font-medium text-black '>Years of Experience</label>
                                     <input type="number" id="experience" name="experience" className='input input-bordered w-full max-w-xs' min="0" placeholder="Experience" required />
                                 </div>
+                            </div>
+                            <div className="w-1/2 gap-4">
+                                <label htmlFor="photoURL" className='block mb-2 text-sm font-medium text-black '>Your Photo URL</label>
+                                <input type="text" id="photoURL" name="photoURL" className='input input-bordered w-full max-w-xs' min="0" placeholder="photo URL" required />
                             </div>
                             <div className="w-96 mx-auto">
                                 {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-black ">Your Job Title</label> */}
