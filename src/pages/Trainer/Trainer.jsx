@@ -10,6 +10,8 @@ import { useQuery } from '@tanstack/react-query';
 import LoadingAnimations from '../../components/LoadingAnimations/LoadingAnimations';
 import { FaFacebook } from "react-icons/fa";
 import Container from './../../components/Container/Container';
+import TrainerCard from '../../components/TrainerCard/TrainerCard';
+
 
 export default function Trainer() {
 
@@ -64,36 +66,7 @@ export default function Trainer() {
                 <Container>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full'>
                         {
-                            trainers.map(({ _id, email,
-                                fullName,
-                                age,
-                                description,
-                                skills,
-                                week,
-                                day,
-                                fbLink,
-                                experience,
-                                role,
-                                status }) => {
-                                return <div className="card w-96 bg-base-100 shadow-xl" key={_id}>
-                                    <div className="card-body">
-                                        <h2 className="card-title">{fullName}</h2>
-                                        <p>{description}</p>
-                                        <div className='flex'>
-                                            <p>{week}</p>
-                                            <p>{day}</p>
-                                        </div>
-                                        <p>{skills}</p>
-                                        <p>Years Of Expresience: {experience} Years</p>
-                                        <p>{role}</p>
-                                        <p><Link to={fbLink} ><FaFacebook /></Link></p>
-                                        <div className="card-actions justify-end">
-                                            <button className="btn btn-primary text-white"> Know More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                // console.log(trainer)
-                            })
+                            trainers.map((trainerOne) => <TrainerCard key={trainerOne?._id} trainerOne={trainerOne}></TrainerCard>)
                         }
                     </div>
                 </Container>
