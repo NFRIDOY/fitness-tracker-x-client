@@ -15,9 +15,10 @@ export default function BeATrainer() {
         const form = e.target;
         const email = user.email
         const fullName = form.FullName.value;
-        const age = form.age.value;
+        const age = parseInt(form.age.value);
         const description = form.description.value;
-        const skills = form.skills.value;
+        // const skills = form.skills.value || [];
+        const skills = [];
         const week = form.AvalableTimeInAWeek.value;
         const day = form.AvalableTimeInADay.value;
         const fbLink = form.fbLink.value;
@@ -49,21 +50,7 @@ export default function BeATrainer() {
                 } else {
                     toast.error('Failed To Add!')
                 }
-
             })
-
-        // fetch("http://localhost:5000/api/v1/addJobs", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(newJob)
-        // })
-        // .then(res => res.json())
-        // .then (data => {
-        //     console.log(data)
-        // })
-
     }
 
     return (
@@ -89,7 +76,7 @@ export default function BeATrainer() {
                         <div className='flex gap-4'>
                             <div className="w-full">
                                 <label htmlFor="age" className="block mb-2 text-sm font-medium text-black ">Age</label>
-                                <input type="date" name="age" id="age" className=" input input-bordered w-full max-w-xs" placeholder="Job Title" required="" />
+                                <input type="number" name="age" id="age" className=" input input-bordered w-full max-w-xs" placeholder="Age" required="" />
                             </div>
                             <div className="w-full">
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium text-black ">Description</label>
