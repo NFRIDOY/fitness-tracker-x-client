@@ -15,7 +15,9 @@ import GalleryPage from "../pages/GalleryPage/GalleryPage";
 import PrivateRoute from "./PrivateRoute";
 import BeATrainer from "../components/BeATrainer/BeATrainer";
 import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
-import TrainerDashbord from "../pages/TrainerDashbord/TrainerDashbord";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard";
+import TrainerDashboard from "../pages/Dashboard/TrainerDashboard";
+import MemberDashboard from "../pages/Dashboard/MemberDashboard";
 
 
 const router = createBrowserRouter([
@@ -51,17 +53,17 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><BeATrainer></BeATrainer></PrivateRoute>,
                 // errorElement: <Error></Error>,
             },
-            {
-                path: "/TrainerDashbord",
-                element: <PrivateRoute><TrainerDashbord></TrainerDashbord></PrivateRoute>,
-                // errorElement: <Error></Error>,
-                children: [
-                    // {
-                    //     path: "/TrainerDashbord",
-                    //     element: 
-                    // },
-                ]
-            },
+            // {
+            //     path: "/TrainerDashbord",
+            //     element: <PrivateRoute><TrainerDashbord></TrainerDashbord></PrivateRoute>,
+            //     // errorElement: <Error></Error>,
+            //     children: [
+            //         // {
+            //         //     path: "/TrainerDashbord",
+            //         //     element: 
+            //         // },
+            //     ]
+            // },
             {
                 path: "/Classes",
                 element: <Classes></Classes>,
@@ -73,9 +75,38 @@ const router = createBrowserRouter([
                 // errorElement: <Error></Error>,
                 children: [
                     {
+                        path: "/Dashboard/AdminDashboard",
+                        element: <PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>,
+                        // errorElement: <Error></Error>,
+                        children: [
+                            {
+                                path: "/Dashboard/AdminDashboard",
+                                element: <AdminDashboard></AdminDashboard>,
+                            }
+                        ]
+                    },
+                    {
                         path: "/Dashboard/TrainerDashbord",
-                        element: <PrivateRoute><TrainerDashbord></TrainerDashbord></PrivateRoute>,
-                    }
+                        element: <PrivateRoute><TrainerDashboard></TrainerDashboard></PrivateRoute>,
+                        // errorElement: <Error></Error>,
+                        children: [
+                            {
+                                path: "/Dashboard/TrainerDashbord",
+                                element: <TrainerDashboard></TrainerDashboard>,
+                            }
+                        ]
+                    },
+                    {
+                        path: "/Dashboard/MemberDashboard",
+                        element: <PrivateRoute><MemberDashboard></MemberDashboard></PrivateRoute>,
+                        // errorElement: <Error></Error>,
+                        children: [
+                            {
+                                path: "/Dashboard/MemberDashboard",
+                                element: <MemberDashboard></MemberDashboard>,
+                            }
+                        ]
+                    },
                 ]
             },
             {

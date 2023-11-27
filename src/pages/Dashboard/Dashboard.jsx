@@ -24,9 +24,7 @@ export default function Dashboard() {
 
     return (
         <div>
-            <Header1>
-                Dashboard
-            </Header1>
+            
             <h1>
                 {
                     (dashboardUser == "admin") ? <AdminDashboard></AdminDashboard> : dashboardUser == "trainer" ? <TrainerDashboard></TrainerDashboard> : dashboardUser == "member" ? <MemberDashboard></MemberDashboard> : <LoadingAnimations></LoadingAnimations>
