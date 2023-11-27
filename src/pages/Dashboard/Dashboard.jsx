@@ -4,6 +4,7 @@ import Header1 from './../../components/Headers/Header1';
 import { useEffect, useState } from 'react';
 import useAxios from '../../hook/useAxios';
 import useAuth from '../../hook/useAuth';
+import LoadingAnimations from './../../components/LoadingAnimations/LoadingAnimations';
 
 export default function Dashboard() {
     const [dashboardUser, setDashboardUser] = useState({})
@@ -25,7 +26,8 @@ export default function Dashboard() {
             </Header1>
             <h1>
                 {
-
+                    (dashboardUser == "admin") ? "Admin" : dashboardUser == "trainer" ? "trainer" : dashboardUser == "member" ? "member" : <LoadingAnimations></LoadingAnimations>
+                    
                 }
             </h1>
             {
