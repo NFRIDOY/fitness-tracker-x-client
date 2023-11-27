@@ -18,6 +18,10 @@ import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard";
 import TrainerDashboard from "../pages/Dashboard/TrainerDashboard";
 import MemberDashboard from "../pages/Dashboard/MemberDashboard";
+import AllSubs from "../pages/Dashboard/AdminDashboard/AllSubs";
+import AllTrainers from "../pages/Dashboard/AdminDashboard/AllTrainers";
+import AppliedTrainers from "../pages/Dashboard/AdminDashboard/AppliedTrainers";
+import Balance from "../pages/Dashboard/AdminDashboard/Balance";
 
 
 const router = createBrowserRouter([
@@ -74,39 +78,49 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
                 // errorElement: <Error></Error>,
                 children: [
+
+                ]
+            },
+            {
+                path: "/Dashboard/AdminDashboard",
+                element: <PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>,
+                // errorElement: <Error></Error>,
+                children: [
                     {
-                        path: "/Dashboard/AdminDashboard",
-                        element: <PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>,
-                        // errorElement: <Error></Error>,
-                        children: [
-                            {
-                                path: "/Dashboard/AdminDashboard",
-                                element: <AdminDashboard></AdminDashboard>,
-                            }
-                        ]
+                        path: "/Dashboard/AdminDashboard/AllSubs",
+                        element: <AllSubs></AllSubs>,
                     },
                     {
-                        path: "/Dashboard/TrainerDashbord",
-                        element: <PrivateRoute><TrainerDashboard></TrainerDashboard></PrivateRoute>,
-                        // errorElement: <Error></Error>,
-                        children: [
-                            {
-                                path: "/Dashboard/TrainerDashbord",
-                                element: <TrainerDashboard></TrainerDashboard>,
-                            }
-                        ]
+                        path: "/Dashboard/AdminDashboard/AllTrainers",
+                        element: <AllTrainers></AllTrainers>,
                     },
+                    {
+                        path: "/Dashboard/AdminDashboard/AppliedTrainers",
+                        element: <AppliedTrainers></AppliedTrainers>,
+                    },
+                    {
+                        path: "/Dashboard/AdminDashboard/Balance",
+                        element: <Balance></Balance>,
+                    },
+                ]
+            },
+            {
+                path: "/Dashboard/TrainerDashbord",
+                element: <PrivateRoute><TrainerDashboard></TrainerDashboard></PrivateRoute>,
+                // errorElement: <Error></Error>,
+                children: [
+                    
+                ]
+            },
+            {
+                path: "/Dashboard/MemberDashboard",
+                element: <PrivateRoute><MemberDashboard></MemberDashboard></PrivateRoute>,
+                // errorElement: <Error></Error>,
+                children: [
                     {
                         path: "/Dashboard/MemberDashboard",
-                        element: <PrivateRoute><MemberDashboard></MemberDashboard></PrivateRoute>,
-                        // errorElement: <Error></Error>,
-                        children: [
-                            {
-                                path: "/Dashboard/MemberDashboard",
-                                element: <MemberDashboard></MemberDashboard>,
-                            }
-                        ]
-                    },
+                        element: <MemberDashboard></MemberDashboard>,
+                    }
                 ]
             },
             {
