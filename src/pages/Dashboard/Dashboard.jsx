@@ -9,11 +9,12 @@ export default function Dashboard() {
     const [dashboardUser, setDashboardUser] = useState({})
     const axios = useAxios();
     const { user } = useAuth();
+    console.log(user.email)
     useEffect(() => {
         axios.get(`/dashboard?email=${user.email}`)
             .then(res => {
-                setDashboardUser(res.data)
-                console.log(res.data)
+                setDashboardUser(res.data.role)
+                console.log(res.data.role)
             })
     }, [])
 
