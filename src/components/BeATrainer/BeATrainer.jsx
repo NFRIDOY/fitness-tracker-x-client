@@ -4,8 +4,11 @@ import useAuth from '../../hook/useAuth';
 import useAxios from '../../hook/useAxios';
 import Header1 from './../Headers/Header1';
 import Container from '../../components/Container/Container';
+import ToggleDays from '../WeekDayPicker/ToggleDays';
+import { useState } from 'react';
 
 export default function BeATrainer() {
+    const [days, setDays] = useState([]);
 
     const { user } = useAuth()
 
@@ -33,6 +36,7 @@ export default function BeATrainer() {
             description,
             skills,
             week,
+            // week: days,
             day,
             fbLink,
             experience,
@@ -43,7 +47,7 @@ export default function BeATrainer() {
         // Output
         console.log(newTrainer)
         // http://localhost:5000/api/v1/addJobs
-        axios.post("/trainers", newTrainer)
+        axios.put("/trainers", newTrainer)
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {
@@ -107,6 +111,7 @@ export default function BeATrainer() {
                                 <div className="w-1/2">
                                     <label htmlFor="AvalableTimeInAWeek" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Week</label>
                                     <input type="text" name="AvalableTimeInAWeek" id="AvalableTimeInAWeek" className=" input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Week" required="" />
+                                    {/* <ToggleDays days={days} setDays={setDays}></ToggleDays> */}
 
                                 </div>
                                 <div className="w-1/2">
