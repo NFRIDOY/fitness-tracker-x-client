@@ -5,6 +5,9 @@ import { useEffect, useState } from 'react';
 import useAxios from '../../hook/useAxios';
 import useAuth from '../../hook/useAuth';
 import LoadingAnimations from './../../components/LoadingAnimations/LoadingAnimations';
+import AdminDashboard from './AdminDashboard';
+import TrainerDashboard from './TrainerDashboard';
+import MemberDashboard from './MemberDashboard';
 
 export default function Dashboard() {
     const [dashboardUser, setDashboardUser] = useState({})
@@ -26,15 +29,14 @@ export default function Dashboard() {
             </Header1>
             <h1>
                 {
-                    (dashboardUser == "admin") ? "Admin" : dashboardUser == "trainer" ? "trainer" : dashboardUser == "member" ? "member" : <LoadingAnimations></LoadingAnimations>
-                    
+                    (dashboardUser == "admin") ? <AdminDashboard></AdminDashboard> : dashboardUser == "trainer" ? <TrainerDashboard></TrainerDashboard> : dashboardUser == "member" ? <MemberDashboard></MemberDashboard> : <LoadingAnimations></LoadingAnimations>
                 }
             </h1>
-            {
+            {/* {
                 <div>
                     <Outlet></Outlet>
                 </div>
-            }
+            } */}
         </div>
     )
 }
