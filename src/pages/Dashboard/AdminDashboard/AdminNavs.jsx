@@ -51,6 +51,16 @@ export default function AdminNavs() {
                     Balance
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    to="/Dashboard/AdminDashboard/Forum"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? activeStyle : ""
+                    }
+                >
+                    Forum
+                </NavLink>
+            </li>
         </ul>
 
     )

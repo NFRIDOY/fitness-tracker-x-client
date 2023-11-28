@@ -11,11 +11,12 @@ export default function AppliedTrainers() {
     const { user } = useAuth()
 
     const [trainers, setTrainers] = useState([]);
-    const [isConfirmed, setIsConfirmed] = useState("");
+    const [isConfirmed, setIsConfirmed] = useState(false);
+    const [isReject, setIsReject] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [trainerOne, setTrainerOne] = useState({});
     const axios = useAxios();
-    const status = "pending";
+    let status = "pending";
 
     const { isPending, error, data: allTrainers } = useQuery({
         queryKey: ['trainers'],
@@ -35,27 +36,32 @@ export default function AppliedTrainers() {
 
     }, [isOpen])
 
-    // const toggleModal = (id) => {
-    //     setIsOpen(!isOpen);
-    //     axios.get(`/trainers/${id}`).then(
-    //         (res) => {
-    //             console.log(res.data)
-    //             // console.log(alltrainers)
-    //             setTrainerOne(res.data)
-    //         },
-    //     )
-    //     const modal = <>
-    //         <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-    //         <div className="modal" role="dialog">
-    //             <div className="modal-box">
-    //                 <h3 className="text-lg font-bold">Hello!</h3>
-    //                 <p className="py-4">This modal works with a hidden checkbox!</p>
-    //             </div>
-    //             <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
-    //         </div>
-    //     </>
-    //     return modal;
-    // }
+    const handleConfimation = (emailThis) => {
+        status = "confirmation";
+        setIsConfirmed(!isConfirmed);
+        setIsReject(false);
+
+        axios.put(`/trainer/${emailThis}?status=${status}`, trainerOne).then(
+            (res) => {
+                console.log(res.data)
+                // console.log(alltrainers)
+                setTrainerOne(res.data)
+            },
+        )
+    }
+
+    const handleReject = (emailThis) => {
+        status = "reject";
+        setIsReject(!setIsReject);
+        setIsConfirmed(false);
+        axios.put(`/trainer/${emailThis}?status=${status}`, trainerOne).then(
+            (res) => {
+                console.log(res.data)
+                // console.log(alltrainers)
+                setTrainerOne(res.data)
+            },
+        )
+    }
 
     const openModal = (id) => {
         axios.get(`/trainers/${id}`).then(
@@ -164,10 +170,10 @@ export default function AppliedTrainers() {
                                                 <tfoot>
                                                     <tr>
                                                         <th>
-                                                            <button className="btn btn-success text-white mx-auto">Confirmation</button>
+                                                            <button onClick={() => handleConfimation(trainerOne?.email)} className="btn btn-success text-white mx-auto">Confirmation</button>
                                                         </th>
                                                         <th>
-                                                            <button className="btn btn-error text-white mx-auto">Reject</button>
+                                                            <button onClick={() => handleReject(trainerOne?.email)} className="btn btn-error text-white mx-auto">Reject</button>
                                                         </th>
                                                     </tr>
                                                 </tfoot>

@@ -22,6 +22,7 @@ import AllSubs from "../pages/Dashboard/AdminDashboard/AllSubs";
 import AllTrainers from "../pages/Dashboard/AdminDashboard/AllTrainers";
 import AppliedTrainers from "../pages/Dashboard/AdminDashboard/AppliedTrainers";
 import Balance from "../pages/Dashboard/AdminDashboard/Balance";
+import Forum from "../pages/Forum/Forum";
 
 
 const router = createBrowserRouter([
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
                         path: "/Dashboard/AdminDashboard/Balance",
                         element: <Balance></Balance>,
                     },
+                    {
+                        path: "/Dashboard/AdminDashboard/Forum",
+                        element: <Forum></Forum>,
+                    },
                 ]
             },
             {
@@ -109,7 +114,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><TrainerDashboard></TrainerDashboard></PrivateRoute>,
                 // errorElement: <Error></Error>,
                 children: [
-                    
+                    // {
+                    //     path: "/Dashboard/TrainerDashbord/Forum",
+                    //     element: <Forum></Forum>,
+                    // },
                 ]
             },
             {
