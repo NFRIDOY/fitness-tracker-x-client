@@ -49,7 +49,7 @@ export default function AllTrainers() {
                                 <th>Skills</th>
                                 <th>Week</th>
                                 <th>Day</th>
-                                <th>experience</th>
+                                <th>Experience</th>
                                 <th>Salary Payment</th>
                             </tr>
                         </thead>
