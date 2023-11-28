@@ -50,6 +50,7 @@ export default function AppliedTrainers() {
         )
     }
 
+    // rejects
     const handleReject = (emailThis) => {
         status = "reject";
         setIsReject(!setIsReject);
