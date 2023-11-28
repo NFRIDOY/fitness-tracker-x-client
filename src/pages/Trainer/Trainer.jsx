@@ -19,11 +19,12 @@ export default function Trainer() {
 
     const [trainers, setTrainers] = useState();
     const axios = useAxios();
+    const status = "confirmation";
 
     const { isPending, error, data: alltrainers } = useQuery({
         queryKey: ['trainers'],
         queryFn: () =>
-            axios.get(`/trainers`).then(
+            axios.get(`/trainers?status=${status}`).then(
                 (res) => {
                     console.log(res.data)
                     // console.log(alltrainers)

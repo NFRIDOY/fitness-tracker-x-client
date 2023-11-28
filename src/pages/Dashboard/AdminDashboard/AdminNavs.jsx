@@ -10,7 +10,7 @@ export default function AdminNavs() {
     const activeStyle = "bg-red-500 text-white py-4 w-full"
 
     return (
-        <ul className="flex flex-col items-start gap-10 text-3xl bg-slate-300 py-4 ">
+        <ul className="flex flex-row items-start gap-10 text-3xl bg-slate-300 py-4 w-full">
             <li>
                 <NavLink
                     to="/Dashboard/AdminDashboard/AllSubs"

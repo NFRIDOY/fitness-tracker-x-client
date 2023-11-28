@@ -11,11 +11,11 @@ export default function AdminDashboard() {
                 Admin Dashboard
             </Header1>
             <Container>
-                <section className="flex bg-slate-200 ">
-                    <div className="w-1/4">
+                <section className="flex flex-col bg-slate-200 ">
+                    <div className="w-fit mx-auto">
                         <AdminNavs></AdminNavs>
                     </div>
-                    <div className="w-3/4">
+                    <div className="w-full">
                         <Outlet></Outlet>
                     </div>
                 </section>
