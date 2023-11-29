@@ -7,10 +7,10 @@ import AllSubs from './AllSubs';
 // }
 
 export default function AdminNavs() {
-    const activeStyle = "bg-red-500 text-white py-4 w-full"
+    const activeStyle = "bg-red-500 text-white py-2 px-4 w-full rounded-lg"
 
     return (
-        <ul className="flex flex-row items-start gap-10 text-3xl bg-slate-300 py-4 w-full">
+        <ul className="flex flex-row items-start gap-10 text-3xl my-4 w-full ">
             <li>
                 <NavLink
                     to="/Dashboard/AdminDashboard/AllSubs"

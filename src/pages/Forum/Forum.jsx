@@ -1,21 +1,68 @@
-import useAuth from "../../hook/useAuth"
+import Header1 from './../../components/Headers/Header1';
+import { useEffect, useState } from 'react';
+import useAxios from '../../hook/useAxios';
+import useAuth from '../../hook/useAuth';
+import LoadingAnimations from './../../components/LoadingAnimations/LoadingAnimations';
 
 
 export default function Forum() {
-    const {user} = useAuth();
-    // const 
+    const [dashboardUser, setDashboardUser] = useState()
+    const axios = useAxios();
+    const { user } = useAuth();
+    useEffect(() => {
+        axios.get(`/dashboard?email=${user.email}`)
+            .then(res => {
+                setDashboardUser(res.data.role)
+                // console.log(res.data.role)
+            })
+    }, [])
+
+    const handleForum = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const fullName = user.displayName;
+        const role = dashboardUser;
+        const email = user.email;
+        const text = form.text.value;
+
+        const date = new Date();
+
+        const forum = {
+            fullName,
+            role,
+            email,
+            text,
+            date,
+            upVotes: 0,
+            downVote: 0
+        }
+        console.log(forum);
+    }
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl mx-auto my-32">
-                <div className="card-body">
-                    <h2 className="card-title">Your Name: </h2>
-                    <h2 className="card-title">Your Name: </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+            <form onSubmit={handleForum} className="border-8 card w-96 bg-base-100 shadow-xl mx-auto my-32">               <div className="card-body">
+                    {/* <h2 className="card-title">Your Name: {user.displayName}</h2>
+                    <h2 className="card-title text-gray-300">{dashboardUser}</h2> */}
+                    <p>
+                        {/* <input type="text" placeholder="Type here"  /> */}
+                        {/* <textarea name="" id="" cols="30" rows="10" className="h-40 input input-bordered w-full max-w-xs" ></textarea> */}
+                        <label className="form-control w-full max-w-xs">
+                            <div className="label">
+                                <span className="label-text card-title">Your Name: {user.displayName}</span>
+                                <span className="label-text-alt italic">Your Are: {dashboardUser}</span>
+                            </div>
+                            <textarea name='text' id='text' className="textarea textarea-bordered h-24" placeholder="Type here"></textarea>
+                            <div className="label">
+                                <span className="label-text-alt italic">Email: {user.email}</span>
+                                <span className="label-text-alt text-primary">Share Your Thoughts</span>
+                            </div>
+                        </label>
+                    </p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button type='submit' className="btn btn-primary text-white">Submit</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

@@ -11,7 +11,7 @@ export default function AdminDashboard() {
                 Admin Dashboard
             </Header1>
             <Container>
-                <section className="flex flex-col bg-slate-200 ">
+                <section className="flex flex-col  ">
                     <div className="w-fit mx-auto">
                         <AdminNavs></AdminNavs>
                     </div>
