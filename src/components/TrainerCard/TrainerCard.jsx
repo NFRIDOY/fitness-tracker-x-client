@@ -13,6 +13,7 @@ export default function TrainerCard({ trainerOne }) {
         fbLink,
         experience,
         role,
+        photoURL,
         status } = trainerOne;
 
     console.log(trainerOne)
@@ -21,7 +22,8 @@ export default function TrainerCard({ trainerOne }) {
             <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-lg p-4">
                 <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
                     <img
-                        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                        // src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                        src={photoURL}
                         alt="tania andrew"
                         className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
                     />

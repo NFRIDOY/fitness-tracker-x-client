@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/Trainer/:id",
-                element: <TrainerDetails></TrainerDetails>,
+                element: <PrivateRoute><TrainerDetails></TrainerDetails></PrivateRoute>,
                 // loader: ({perams}) => fetch()
                 // errorElement: <Error></Error>,
             },
