@@ -11,6 +11,7 @@ import LoadingAnimations from '../../components/LoadingAnimations/LoadingAnimati
 import { FaFacebook } from "react-icons/fa";
 import Container from './../../components/Container/Container';
 import TrainerCard from '../../components/TrainerCard/TrainerCard';
+import TrainersPlans from '../../components/TrainersPlans/TrainersPlans';
 
 
 export default function Trainer() {
@@ -50,7 +51,7 @@ export default function Trainer() {
             </Header1>
             {/* All Trainers */}
             <section>
-                <h1 className='text-center text-xl underline italic'> Total Trainers : 
+                <h1 className='text-center text-xl underline italic'> Total Trainers :
                     {
                         trainers.length
                     }
@@ -73,6 +74,9 @@ export default function Trainer() {
                 </Container>
             </section>
             {/* be a Trainer */}
+            <section className='mx-max-w-lg'>
+                <TrainersPlans></TrainersPlans>
+            </section>
             <section className='mx-auto w-fit'>
                 <Link to={"/BeATrainer"} className='btn btn-success text-white '>
                     Be A Trainer
