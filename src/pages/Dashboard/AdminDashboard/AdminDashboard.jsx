@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Header1 from "../../components/Headers/Header1";
-import AdminNavs from "./AdminDashboard/AdminNavs";
-import Container from './../../components/Container/Container';
+import Header1 from "../../../components/Headers/Header1";
+import AdminNavs from "./AdminNavs";
+import Container from '../../../components/Container/Container';
 
 
 export default function AdminDashboard() {

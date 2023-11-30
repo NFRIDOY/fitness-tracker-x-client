@@ -15,8 +15,8 @@ import GalleryPage from "../pages/GalleryPage/GalleryPage";
 import PrivateRoute from "./PrivateRoute";
 import BeATrainer from "../components/BeATrainer/BeATrainer";
 import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
-import AdminDashboard from "../pages/Dashboard/AdminDashboard";
-import TrainerDashboard from "../pages/Dashboard/TrainerDashboard";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
+import TrainerDashboard from "../pages/Dashboard/TrainerDashboard/TrainerDashboard";
 import MemberDashboard from "../pages/Dashboard/MemberDashboard";
 import AllSubs from "../pages/Dashboard/AdminDashboard/AllSubs";
 import AllTrainers from "../pages/Dashboard/AdminDashboard/AllTrainers";
@@ -145,7 +145,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/Profile",
-                element: <Profile></Profile>,
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>,
                 // errorElement: <Error></Error>,
             },
             {

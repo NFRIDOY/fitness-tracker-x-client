@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import useAxios from '../../hook/useAxios';
 import useAuth from '../../hook/useAuth';
 import LoadingAnimations from './../../components/LoadingAnimations/LoadingAnimations';
-import AdminDashboard from './AdminDashboard';
-import TrainerDashboard from './TrainerDashboard';
+import AdminDashboard from './AdminDashboard/AdminDashboard';
+import TrainerDashboard from './TrainerDashboard/TrainerDashboard';
 import MemberDashboard from './MemberDashboard';
 
 export default function Dashboard() {

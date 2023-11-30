@@ -42,16 +42,16 @@ export default function TrainerDetails() {
             {/* </div> */}
             <div>
                 <div className="hero min-h-screen bg-base-200">
-                    <div className="hero-content flex-col lg:flex-row">
+                    <div className="hero-content flex-col lg:flex-row lg:items-start">
                         <img src={photoURL} className="max-w-sm rounded-lg shadow-2xl" />
-                        <div>
+                        <div className="">
                             <h1 className="text-5xl font-bold">{fullName}</h1>
                             <p className="py-2">Role: {role}</p>
-                            <p className="py-2">Year Of Experience: {experience}</p>
-                            <p className="py-2">Experience: {experience} Years</p>
+                            <p className="py-2">Email: {email} </p>
+                            <p className="py-2">Year Of Experience: {experience} Years</p>
                             <Link to={'/TrainerBooked'} className="py-2">Availabe days in a Week: {week}</Link>
                             <p className="py-2">Availabe time in a Day : {day}</p>
-                            <button className="btn btn-primary">Get Started</button>
+                            <Link to={'/TrainerBooked'}  className="btn btn-primary">Get Started</Link>
                         </div>
                     </div>
                 </div>
