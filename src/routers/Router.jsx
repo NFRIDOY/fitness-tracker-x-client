@@ -25,6 +25,9 @@ import Balance from "../pages/Dashboard/AdminDashboard/Balance";
 import Forum from "../pages/Forum/Forum";
 import TrainerBooked from "../pages/TrainerBooked/TrainerBooked";
 import Payment from "../pages/Payment/Payment";
+import ManageSlots from "../pages/Dashboard/TrainerDashboard/ManageSlots";
+import Member from "../pages/Dashboard/TrainerDashboard/Member";
+import AddClass from "../pages/Dashboard/TrainerDashboard/AddClass";
 
 
 const router = createBrowserRouter([
@@ -121,10 +124,23 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><TrainerDashboard></TrainerDashboard></PrivateRoute>,
                 // errorElement: <Error></Error>,
                 children: [
-                    // {
-                    //     path: "/Dashboard/TrainerDashbord/Forum",
-                    //     element: <Forum></Forum>,
-                    // },
+                    {
+                        path: "/Dashboard/TrainerDashbord/ManageSlots",
+                        element: <PrivateRoute><ManageSlots></ManageSlots></PrivateRoute>,
+                    },
+                    {
+                        path: "/Dashboard/TrainerDashbord/Member",
+                        element: <PrivateRoute><Member></Member></PrivateRoute>,
+                    },
+                    {
+                        path: "/Dashboard/TrainerDashbord/Forum",
+                        element: <PrivateRoute><Forum></Forum></PrivateRoute>,
+                    },
+                    {
+                        path: "/Dashboard/TrainerDashbord/AddClass",
+                        element: <PrivateRoute><AddClass></AddClass></PrivateRoute>,
+                    }
+
                 ]
             },
             {

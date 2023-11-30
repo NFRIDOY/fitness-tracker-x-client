@@ -53,7 +53,7 @@ export default function Community() {
                 Community
             </Header1>
             <Container>
-                <section>
+                <section className="grid grid-cols-1 gap-4">
                     {
                         forums?.map((forum) => <div key={forum?._id} className="card w-full bg-base-100 shadow-xl">
                             <div className="card-body">

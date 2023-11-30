@@ -6,11 +6,14 @@ import Container from "../../components/Container/Container";
 
 export default function MainLayout() {
     return (
-        <div className="relative">
-            <div className="mx-auto max-w-7xl">
+        <div className="relative ">
+            <div className="mx-auto h-[130px] max-w-7xl">
                 <Navbar></Navbar>
             </div>
-            <Outlet></Outlet>
+            <div className="min-h-[53vh]">
+            {/* <div className="min-h-[calc(100vh - 130px)]"> */}
+                <Outlet></Outlet>
+            </div>
             <div className="relative bottom-0">
                 <Footer></Footer>
             </div>
