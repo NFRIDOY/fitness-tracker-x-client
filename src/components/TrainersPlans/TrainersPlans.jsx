@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Container from "../Container/Container";
 import Header1 from "../Headers/Header1";
 
@@ -72,11 +73,11 @@ export default function TrainersPlans() {
                             </ul>
                         </div>
                         <div className="p-0 mt-12">
-                            <button
+                            <Link to={'/Payment'}
                                 className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 rounded-lg text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block w-full hover:scale-[1.02] focus:scale-[1.02] active:scale-100 bg-success"
                                 type="button">
                                 Join Now
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div
@@ -141,11 +142,11 @@ export default function TrainersPlans() {
                             </ul>
                         </div>
                         <div className="p-0 mt-12">
-                            <button
+                            <Link to={'/Payment'}
                                 className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 rounded-lg text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block w-full hover:scale-[1.02] focus:scale-[1.02] active:scale-100 bg-success"
                                 type="button">
                                 Join Now
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div
@@ -210,11 +211,11 @@ export default function TrainersPlans() {
                             </ul>
                         </div>
                         <div className="p-0 mt-12">
-                            <button
+                            <Link to={'/Payment'}
                                 className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 rounded-lg text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block w-full hover:scale-[1.02] focus:scale-[1.02] active:scale-100 bg-success"
                                 type="button">
                                 Join Now
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

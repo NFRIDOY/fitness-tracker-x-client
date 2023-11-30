@@ -26,7 +26,7 @@ export default function AllTrainers() {
             ),
     })
 
-    const togglePay = () => {
+    const togglePay = (id) => {
         setIsPay(!isPay)
     }
     if (isPending) return <LoadingAnimations></LoadingAnimations>
@@ -65,7 +65,7 @@ export default function AllTrainers() {
                                     <td>{row?.experience}</td>
                                     {
                                         !isPay && <td>
-                                            <button onClick={togglePay}>Pay</button>
+                                            <button onClick={() => togglePay(row?._id)}>Pay</button>
                                         </td>
                                     }
                                 </tr>)

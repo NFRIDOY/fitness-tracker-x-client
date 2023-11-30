@@ -90,16 +90,18 @@ export default function Navbar() {
                                     Community
                                 </NavLink>
                             </li>
-                            <li className="w-fit">
-                                <NavLink
-                                    to="/Profile"
-                                    className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "active" : ""
-                                    }
-                                >
-                                    Profile
-                                </NavLink>
-                            </li>
+                            {
+                                user && <li className="w-fit">
+                                    <NavLink
+                                        to="/Profile"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        Profile
+                                    </NavLink>
+                                </li>
+                            }
 
                             <li>
                                 <NavLink
@@ -205,16 +207,19 @@ export default function Navbar() {
                                 Community
                             </NavLink>
                         </li>
-                        <li className="w-fit">
-                            <NavLink
-                                to="/Profile"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "active" : ""
-                                }
-                            >
-                                Profile
-                            </NavLink>
-                        </li>
+                        {
+                            user && <li className="w-fit">
+                                <NavLink
+                                    to="/Profile"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Profile
+                                </NavLink>
+                            </li>
+                        }
+
 
                         <li>
                             <NavLink

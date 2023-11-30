@@ -24,6 +24,7 @@ import AppliedTrainers from "../pages/Dashboard/AdminDashboard/AppliedTrainers";
 import Balance from "../pages/Dashboard/AdminDashboard/Balance";
 import Forum from "../pages/Forum/Forum";
 import TrainerBooked from "../pages/TrainerBooked/TrainerBooked";
+import Payment from "../pages/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -147,7 +148,11 @@ const router = createBrowserRouter([
                 element: <Profile></Profile>,
                 // errorElement: <Error></Error>,
             },
-
+            {
+                path: "/Payment",
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+                // errorElement: <Error></Error>,
+            },
             {
                 path: "/Registration",
                 element: <Registration></Registration>,
