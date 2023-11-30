@@ -74,9 +74,7 @@ export default function Trainer() {
                 </Container>
             </section>
             {/* be a Trainer */}
-            <section className='mx-max-w-lg'>
-                <TrainersPlans></TrainersPlans>
-            </section>
+            
             <section className='mx-auto w-fit'>
                 <Link to={"/BeATrainer"} className='btn btn-success text-white '>
                     Be A Trainer

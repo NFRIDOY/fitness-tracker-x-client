@@ -23,6 +23,7 @@ import AllTrainers from "../pages/Dashboard/AdminDashboard/AllTrainers";
 import AppliedTrainers from "../pages/Dashboard/AdminDashboard/AppliedTrainers";
 import Balance from "../pages/Dashboard/AdminDashboard/Balance";
 import Forum from "../pages/Forum/Forum";
+import TrainerBooked from "../pages/TrainerBooked/TrainerBooked";
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,11 @@ const router = createBrowserRouter([
             {
                 path: "/BeATrainer",
                 element: <PrivateRoute><BeATrainer></BeATrainer></PrivateRoute>,
+                // errorElement: <Error></Error>,
+            },
+            {
+                path: "/TrainerBooked",
+                element: <PrivateRoute><TrainerBooked></TrainerBooked></PrivateRoute>,
                 // errorElement: <Error></Error>,
             },
             // {

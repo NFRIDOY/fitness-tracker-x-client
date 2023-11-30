@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import useAuth from "../../hook/useAuth"
 import useAxios from "../../hook/useAxios"
 import { useEffect, useState } from "react"
@@ -49,7 +49,7 @@ export default function TrainerDetails() {
                             <p className="py-2">Role: {role}</p>
                             <p className="py-2">Year Of Experience: {experience}</p>
                             <p className="py-2">Experience: {experience} Years</p>
-                            <p className="py-2">Availabe days in a Week: {week}</p>
+                            <Link to={'/TrainerBooked'} className="py-2">Availabe days in a Week: {week}</Link>
                             <p className="py-2">Availabe time in a Day : {day}</p>
                             <button className="btn btn-primary">Get Started</button>
                         </div>
