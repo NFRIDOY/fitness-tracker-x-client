@@ -45,8 +45,8 @@ export default function TrainerDetails() {
                     <div className="hero-content flex-col lg:flex-row lg:items-start">
                         <img src={photoURL} className="max-w-sm rounded-lg shadow-2xl" />
                         <div className="">
-                            <h1 className="text-5xl font-bold">{fullName}</h1>
-                            <p className="py-2">Role: {role}</p>
+                            <h1 className="text-5xl font-bold uppercase">{fullName}</h1>
+                            <p className="py-2 uppercase">{role}</p>
                             <p className="py-2">Email: {email} </p>
                             <p className="py-2">Year Of Experience: {experience} Years</p>
                             <Link to={'/TrainerBooked'} className="py-2">Availabe days in a Week: {week}</Link>
