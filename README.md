@@ -1,8 +1,11 @@
-# React + Vite
+# Fitness Tracker X
+## <a href=""> Live Link </a>
+## Features
+- In "Fitness Tracker X" website you can login and register. By genarally registering you be a member of the "Fitness Tracker X" website.
+- You can see all trainer features.
+- You can choose the trainer and various training plans
+- Here are three different dashboard features for admin, trainer and members.
+- Being Login you can apply for a trainer.
+- Admin can accept or reject the trainer application.
+- 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

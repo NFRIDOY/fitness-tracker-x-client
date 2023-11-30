@@ -17,7 +17,7 @@ import BeATrainer from "../components/BeATrainer/BeATrainer";
 import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 import TrainerDashboard from "../pages/Dashboard/TrainerDashboard/TrainerDashboard";
-import MemberDashboard from "../pages/Dashboard/MemberDashboard";
+import MemberDashboard from "../pages/Dashboard/MemberDashboard/MemberDashboard";
 import AllSubs from "../pages/Dashboard/AdminDashboard/AllSubs";
 import AllTrainers from "../pages/Dashboard/AdminDashboard/AllTrainers";
 import AppliedTrainers from "../pages/Dashboard/AdminDashboard/AppliedTrainers";
@@ -28,6 +28,9 @@ import Payment from "../pages/Payment/Payment";
 import ManageSlots from "../pages/Dashboard/TrainerDashboard/ManageSlots";
 import Member from "../pages/Dashboard/TrainerDashboard/Member";
 import AddClass from "../pages/Dashboard/TrainerDashboard/AddClass";
+import ActivityLog from './../pages/Dashboard/MemberDashboard/ActivityLog';
+import ProfileSettings from './../pages/Dashboard/MemberDashboard/ProfileSettings';
+import RecommendedClassesPage from "../pages/Dashboard/MemberDashboard/RecommendedClassesPage";
 
 
 const router = createBrowserRouter([
@@ -68,17 +71,6 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><TrainerBooked></TrainerBooked></PrivateRoute>,
                 // errorElement: <Error></Error>,
             },
-            // {
-            //     path: "/TrainerDashbord",
-            //     element: <PrivateRoute><TrainerDashbord></TrainerDashbord></PrivateRoute>,
-            //     // errorElement: <Error></Error>,
-            //     children: [
-            //         // {
-            //         //     path: "/TrainerDashbord",
-            //         //     element: 
-            //         // },
-            //     ]
-            // },
             {
                 path: "/Classes",
                 element: <Classes></Classes>,
@@ -149,9 +141,21 @@ const router = createBrowserRouter([
                 // errorElement: <Error></Error>,
                 children: [
                     {
-                        path: "/Dashboard/MemberDashboard",
-                        element: <MemberDashboard></MemberDashboard>,
-                    }
+                        path: "/Dashboard/MemberDashboard/ActivityLog",
+                        element: <PrivateRoute><ActivityLog></ActivityLog></PrivateRoute>,
+                    },
+                    {
+                        path: "/Dashboard/MemberDashboard/ProfileSettings",
+                        element: <PrivateRoute><ProfileSettings></ProfileSettings></PrivateRoute>,
+                    },
+                    {
+                        path: "/Dashboard/MemberDashboard/RecommendedClassesPage",
+                        element: <PrivateRoute><RecommendedClassesPage></RecommendedClassesPage></PrivateRoute>,
+                    },
+                    // {
+                    //     path: "/Dashboard/MemberDashboard/",
+                    //     element: <PrivateRoute></PrivateRoute>,
+                    // },
                 ]
             },
             {

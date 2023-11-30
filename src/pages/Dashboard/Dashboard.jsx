@@ -7,7 +7,7 @@ import useAuth from '../../hook/useAuth';
 import LoadingAnimations from './../../components/LoadingAnimations/LoadingAnimations';
 import AdminDashboard from './AdminDashboard/AdminDashboard';
 import TrainerDashboard from './TrainerDashboard/TrainerDashboard';
-import MemberDashboard from './MemberDashboard';
+import MemberDashboard from './MemberDashboard/MemberDashboard';
 
 export default function Dashboard() {
     const [dashboardUser, setDashboardUser] = useState({})
