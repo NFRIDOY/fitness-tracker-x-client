@@ -15,8 +15,8 @@ export default function Community() {
 
     const [forums, setForums] = useState();
     const axios = useAxios();
-    const [vote, setVote] = useState(0);
-    const { isPending, error, data: allForums } = useQuery({
+    // const [vote, setVote] = useState(0);
+    const { isPending, error, data: allForums, refetch } = useQuery({
         queryKey: ['forums'],
         queryFn: () =>
             axios.get(`/forums`).then(
@@ -32,7 +32,25 @@ export default function Community() {
 
     // },[])
 
-    const upVote = (id) => {
+
+
+    const getVoteDB = (id) => {
+        // refetch()
+        let getVote;
+        axios.get(`/forums/${id}`)
+            .then(
+                (res) => {
+                    console.log(res.data.vote)
+                    // console.log(alltrainers)
+                    // setForums(res.data)
+                    getVote = res.data.votes
+                })
+        return getVote;
+    }
+
+    const HandleVote = (id) => {
+
+
         axios.patch(`/forums/${id}`)
             .then(
                 (res) => {
@@ -40,9 +58,37 @@ export default function Community() {
                     // console.log(alltrainers)
                     // setForums(res.data)
                 })
-    }
-    const downVote = (id) => {
 
+        // refetch()
+
+    }
+
+    const upVote = (id, oldVote) => {
+        console.log(oldVote)
+        let vote = parseInt(oldVote) + 1;
+        console.log(vote)
+        let newVoteObj = { vote }
+        axios.patch(`/forums/${id}`, newVoteObj)
+            .then(
+                (res) => {
+                    console.log(res.data)
+                    // console.log(alltrainers)
+                    // setForums(res.data)
+                })
+
+    }
+    const downVote = (id, oldVote) => {
+        console.log(oldVote)
+        let vote = parseInt(oldVote) - 1;
+        console.log(vote)
+        let newVoteObj = { vote }
+        axios.patch(`/forums/${id}`, newVoteObj)
+            .then(
+                (res) => {
+                    console.log(res.data)
+                    // console.log(alltrainers)
+                    // setForums(res.data)
+                })
     }
 
 
@@ -65,11 +111,11 @@ export default function Community() {
                                 <p className="text-gray-500 italic underline" >{forum?.role}</p>
                                 <p>{forum?.description}</p>
                                 <div className="card-actions justify-end">
-                                    <button onClick={() => upVote(forum?._id)} className="btn btn-error text-white">
-                                        <span>{vote}</span>Down Vote
+                                    <button onClick={() => downVote(forum?._id, forum?.vote)} className="btn btn-error text-white">
+                                        <span>{forum?.vote}</span>Down Vote
                                     </button>
-                                    <button onClick={() => downVote(forum?._id)} className="btn btn-primary text-white">
-                                        <span>{vote}</span>Up Vote
+                                    <button onClick={() => upVote(forum?._id, forum?.vote)} className="btn btn-primary text-white">
+                                        <span>{forum?.vote}</span>Up Vote
                                     </button>
                                 </div>
                             </div>

@@ -7,5 +7,5 @@
 - Here are three different dashboard features for admin, trainer and members.
 - Being Login you can apply for a trainer.
 - Admin can accept or reject the trainer application.
-- 
+
 
