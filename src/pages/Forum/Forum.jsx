@@ -24,7 +24,8 @@ export default function Forum() {
         const fullName = user.displayName;
         const role = dashboardUser;
         const email = user.email;
-        const text = form.text.value;
+        const title = form.title.value;
+        const description = form.description.value;
 
         const date = new Date();
 
@@ -32,10 +33,12 @@ export default function Forum() {
             fullName,
             role,
             email,
-            text,
+            title,
+            description,
             date,
-            upVotes: 0,
-            downVote: 0
+            // upVotes: 0,
+            // downVote: 0
+            vote: 0
         }
         console.log(forum);
 
@@ -62,7 +65,10 @@ export default function Forum() {
                             <span className="label-text card-title">Your Name: {user.displayName}</span>
                             <span className="label-text-alt italic">Your Are: {dashboardUser}</span>
                         </div>
-                        <textarea name='text' id='text' className="textarea textarea-bordered h-24" placeholder="Type here"></textarea>
+                        <div className='space-y-3'>
+                            <input type="text" name='title' id='title' placeholder="Title" className="input input-bordered w-full max-w-xs" />
+                            <textarea name='description' id='description' className="textarea textarea-bordered w-full h-24" placeholder="Description"></textarea>
+                        </div>
                         <div className="label">
                             <span className="label-text-alt italic">Email: {user.email}</span>
                             <span className="label-text-alt text-primary">Share Your Thoughts</span>
