@@ -1,7 +1,13 @@
+import { Helmet } from "react-helmet";
 
 
 export default function Classes() {
     return (
-        <div>Classes</div>
+        <div>
+            <Helmet>
+                <title>Fitness Tracker | Classes</title>
+            </Helmet>
+            Classes
+        </div>
     )
 }

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import { useEffect } from "react";
 import useAxios from "../../hook/useAxios";
+import { Helmet } from "react-helmet";
 
 export default function Registration() {
 
@@ -79,7 +80,9 @@ export default function Registration() {
 
     return (
         <div>
-
+            <Helmet>
+                <title></title>
+            </Helmet>
             <section className="bg-white w-full ">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-white">

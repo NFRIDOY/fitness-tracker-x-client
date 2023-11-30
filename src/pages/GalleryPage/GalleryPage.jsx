@@ -1,5 +1,6 @@
 import { Gallery } from "react-grid-gallery";
 import Header1 from './../../components/Headers/Header1';
+import { Helmet } from "react-helmet";
 
 
 
@@ -96,10 +97,16 @@ export default function GalleryPage() {
 
     return (
         <div>
-            <Header1>
-                Gallery
-            </Header1>
-            <Gallery images={images} />
+            <Helmet>
+                <title>Fitness Tracker | Gallery Page</title>
+            </Helmet>
+            <div>
+                
+                <Header1>
+                    Gallery
+                </Header1>
+                <Gallery images={images} />
+            </div>
         </div>
         // <div>GalleryPage</div>
     )

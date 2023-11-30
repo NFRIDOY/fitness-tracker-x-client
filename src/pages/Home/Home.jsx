@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import Header1 from "../../components/Headers/Header1";
 import TrainerCard from "../../components/TrainerCard/TrainerCard";
 import LoadingAnimations from "../../components/LoadingAnimations/LoadingAnimations";
+import { Helmet } from "react-helmet";
 
 
 export default function Home() {
@@ -34,6 +35,9 @@ export default function Home() {
     if (isPending) return <LoadingAnimations></LoadingAnimations>
     return (
         <div>
+            <Helmet>
+                <title>Fitness Tracker | Home</title>
+            </Helmet>
             <section>
                 <Banner></Banner>
             </section>
@@ -56,7 +60,7 @@ export default function Home() {
                 </Header1>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full'>
                     {
-                        trainers.slice(0,3).map((trainerOne) => <TrainerCard key={trainerOne?._id} trainerOne={trainerOne}></TrainerCard>)
+                        trainers.slice(0, 3).map((trainerOne) => <TrainerCard key={trainerOne?._id} trainerOne={trainerOne}></TrainerCard>)
                     }
                 </div>
             </Container>

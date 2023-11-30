@@ -4,6 +4,7 @@ import useAxios from '../../hook/useAxios';
 import useAuth from './../../hook/useAuth';
 import { useEffect } from 'react';
 import Container from '../../components/Container/Container';
+import { Helmet } from 'react-helmet';
 
 
 export default function Profile() {
@@ -24,6 +25,9 @@ export default function Profile() {
     }, [user])
     return (
         <div className=''>
+            <Helmet>
+                <title>Fitness Tracker | Profile</title>
+            </Helmet>
             <Container>
                 <div className="hero min-h-screen relative">
                     <div className="hero-content flex-col lg:flex-row absolute top-0 left-0 border-red-50">

@@ -6,6 +6,7 @@ import useAxios from './../../hook/useAxios';
 import Container from './../../components/Container/Container';
 import LoadingAnimations from './../../components/LoadingAnimations/LoadingAnimations';
 import { useEffect } from 'react';
+import { Helmet } from "react-helmet";
 
 
 export default function Community() {
@@ -49,6 +50,9 @@ export default function Community() {
     // setVote(forums?.vote)
     return (
         <div>
+            <Helmet>
+                <title>Fitness Tracker | Community</title>
+            </Helmet>
             <Header1>
                 Community
             </Header1>

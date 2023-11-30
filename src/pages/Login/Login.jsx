@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import useAuth from "../../hook/useAuth"
 import useAxios from "../../hook/useAxios"
 import { useEffect } from "react"
+import { Helmet } from "react-helmet"
 
 export default function Login() {
 
@@ -60,11 +61,11 @@ export default function Login() {
                 }
                 // console.log(userInfo)
                 axios.post('/users', userInfo)
-                .then(res =>{
-                    console.log(res.data);
-                    navigate('/');
-                })
-                
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
+
                 navigate(location?.state ? location?.state : '/')
             })
             .catch((error) => {
@@ -99,10 +100,10 @@ export default function Login() {
                 }
                 // console.log(userInfo)
                 axios.post('/users', userInfo)
-                .then(res =>{
-                    console.log(res.data);
-                    navigate('/');
-                })
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
 
                 // // console.log(location.pathname)
                 // console.log(location?.state)
@@ -123,6 +124,9 @@ export default function Login() {
     }
     return (
         <div>
+            <Helmet>
+                <title>Fitness Tracker | Login</title>
+            </Helmet>
             <section className="bg-white w-full ">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     {/* <a href="" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">

@@ -1,7 +1,13 @@
+import { Helmet } from "react-helmet";
 
 
 export default function Balance() {
     return (
-        <div>Balance</div>
+        <div>
+            <Helmet>
+                <title>Fitness Tracker | Balance</title>
+            </Helmet>
+            Balance
+        </div>
     )
 }

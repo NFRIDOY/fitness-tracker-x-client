@@ -4,6 +4,7 @@ import useAuth from "../../../hook/useAuth";
 import useAxios from "../../../hook/useAxios";
 import LoadingAnimations from "../../../components/LoadingAnimations/LoadingAnimations";
 import { FaEye } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 
 export default function AppliedTrainers() {
@@ -79,6 +80,9 @@ export default function AppliedTrainers() {
 
     return (
         <div className="p-4">
+            <Helmet>
+                <title>Fitness Tracker | Applied Trainers</title>
+            </Helmet>
             <div className="text-center">
                 {
                     "Total Applicants: " + trainers.length

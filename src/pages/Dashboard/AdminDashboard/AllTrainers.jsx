@@ -3,6 +3,7 @@ import { useState } from "react";
 import useAuth from "../../../hook/useAuth";
 import useAxios from "../../../hook/useAxios";
 import LoadingAnimations from "../../../components/LoadingAnimations/LoadingAnimations";
+import { Helmet } from "react-helmet";
 
 
 export default function AllTrainers() {
@@ -33,6 +34,9 @@ export default function AllTrainers() {
 
     return (
         <div className="p-4">
+            <Helmet>
+                <title>Fitness Tracker | AppliedTrainers</title>
+            </Helmet>
             <div className="text-center">
                 {
                     "Total Subscribers: " + trainers.length

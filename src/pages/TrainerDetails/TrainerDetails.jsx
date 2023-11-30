@@ -3,6 +3,7 @@ import useAuth from "../../hook/useAuth"
 import useAxios from "../../hook/useAxios"
 import { useEffect, useState } from "react"
 import Header1 from './../../components/Headers/Header1';
+import { Helmet } from "react-helmet";
 
 
 export default function TrainerDetails() {
@@ -34,6 +35,9 @@ export default function TrainerDetails() {
     console.log(id)
     return (
         <div>
+            <Helmet>
+                <title></title>
+            </Helmet>
             {/* <Header1>
                 Trainer Details
             </Header1> */}

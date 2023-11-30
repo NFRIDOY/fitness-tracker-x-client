@@ -12,6 +12,7 @@ import { FaFacebook } from "react-icons/fa";
 import Container from './../../components/Container/Container';
 import TrainerCard from '../../components/TrainerCard/TrainerCard';
 import TrainersPlans from '../../components/TrainersPlans/TrainersPlans';
+import { Helmet } from 'react-helmet';
 
 
 export default function Trainer() {
@@ -46,6 +47,9 @@ export default function Trainer() {
 
     return (
         <div>
+            <Helmet>
+                <title>Fitness Tracker | Trainers</title>
+            </Helmet>
             <Header1>
                 Trainers
             </Header1>
@@ -74,7 +78,7 @@ export default function Trainer() {
                 </Container>
             </section>
             {/* be a Trainer */}
-            
+
             <section className='mx-auto w-fit'>
                 <Link to={"/BeATrainer"} className='btn btn-success text-white '>
                     Be A Trainer
