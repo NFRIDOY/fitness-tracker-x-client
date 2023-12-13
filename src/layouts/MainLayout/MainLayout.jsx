@@ -10,11 +10,11 @@ export default function MainLayout() {
             <div className="mx-auto h-[130px] max-w-7xl">
                 <Navbar></Navbar>
             </div>
-            <div className="min-h-[53vh]">
+            <div className="min-h-[100vh]">
             {/* <div className="min-h-[calc(100vh - 130px)]"> */}
                 <Outlet></Outlet>
             </div>
-            <div className="relative bottom-0">
+            <div className="mb-0">
                 <Footer></Footer>
             </div>
         </div>

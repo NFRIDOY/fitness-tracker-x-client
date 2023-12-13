@@ -61,7 +61,7 @@ export default function Navbar() {
                                     Trainer
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink
                                     to="/Classes"
                                     className={({ isActive, isPending }) =>
@@ -70,7 +70,7 @@ export default function Navbar() {
                                 >
                                     Classes
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li className="w-fit">
                                 <NavLink
                                     to="/Dashboard"
@@ -183,7 +183,7 @@ export default function Navbar() {
                                 Trainer
                             </NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                             <NavLink
                                 to="/Classes"
                                 className={({ isActive, isPending }) =>
@@ -192,7 +192,7 @@ export default function Navbar() {
                             >
                                 Classes
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li className="w-fit">
                             <NavLink
                                 to="/Dashboard"
