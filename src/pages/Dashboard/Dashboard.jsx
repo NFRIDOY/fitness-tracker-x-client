@@ -23,12 +23,17 @@ export default function Dashboard() {
 
     return (
         <div>
-            
+
             <h1>
+                {
+                    (dashboardUser == "admin") ? <AdminDashboard></AdminDashboard> : dashboardUser == "trainer" ? <TrainerDashboard></TrainerDashboard> : dashboardUser == "member" ? <div className='text-center'>Comming Soon Member Dashboard</div> : <LoadingAnimations></LoadingAnimations>
+                }
+            </h1>
+            {/* <h1>
                 {
                     (dashboardUser == "admin") ? <AdminDashboard></AdminDashboard> : dashboardUser == "trainer" ? <TrainerDashboard></TrainerDashboard> : dashboardUser == "member" ? <MemberDashboard></MemberDashboard> : <LoadingAnimations></LoadingAnimations>
                 }
-            </h1>
+            </h1> */}
             {/* {
                 <div>
                     <Outlet></Outlet>

@@ -110,14 +110,14 @@ export default function Community() {
                                 <h2 className="card-title">{forum?.title}</h2>
                                 <p className="text-gray-500 italic underline" >{forum?.role}</p>
                                 <p>{forum?.description}</p>
-                                <div className="card-actions justify-end">
+                                {/* <div className="card-actions justify-end">
                                     <button onClick={() => downVote(forum?._id, forum?.vote)} className="btn btn-error text-white">
                                         <span>{forum?.vote}</span>Down Vote
                                     </button>
                                     <button onClick={() => upVote(forum?._id, forum?.vote)} className="btn btn-primary text-white">
                                         <span>{forum?.vote}</span>Up Vote
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>)
                     }
