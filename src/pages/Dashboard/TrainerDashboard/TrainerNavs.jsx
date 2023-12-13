@@ -5,7 +5,7 @@ export default function TrainerNavs() {
     const activeStyle = "bg-red-500 text-white py-2 px-4 w-full rounded-lg"
     return (
         <ul className="flex flex-row items-start gap-10 text-3xl my-4 w-full ">
-            <li>
+            {/* <li>
                 <NavLink
                     to="/Dashboard/TrainerDashbord/ManageSlots"
                     className={({ isActive, isPending }) =>
@@ -24,7 +24,7 @@ export default function TrainerNavs() {
                 >
                     Manage Member
                 </NavLink>
-            </li>
+            </li> */}
             <li>
                 <NavLink
                     to="/Dashboard/TrainerDashbord/Forum"
@@ -35,7 +35,7 @@ export default function TrainerNavs() {
                     Forum
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink
                     to="/Dashboard/TrainerDashbord/AddClass"
                     className={({ isActive, isPending }) =>
@@ -44,7 +44,7 @@ export default function TrainerNavs() {
                 >
                     Add New Class
                 </NavLink>
-            </li>
+            </li> */}
             
         </ul>
     )
