@@ -25,7 +25,8 @@ export default function BeATrainer() {
         const age = parseInt(form.age.value);
         const description = form.description.value;
         // const skills = form.skills.value || [];
-        const skills = [];
+        // const skills = [];
+        const skills = checkboxValues;
         const week = form.AvalableTimeInAWeek.value;
         const day = form.AvalableTimeInADay.value;
         const fbLink = form.fbLink.value;
@@ -38,6 +39,7 @@ export default function BeATrainer() {
             age,
             description,
             skills,
+            // checkboxValues, // skills array
             week,
             // week: days,
             day,
@@ -50,17 +52,17 @@ export default function BeATrainer() {
         // Output
         console.log(newTrainer)
         // http://localhost:5000/api/v1/addJobs
-        // axios.put("/trainers", newTrainer)
-        //     .then(res => {
-        //         console.log(res.data)
-        //         if (res.data.acknowledged) {
-        //             toast.success('Successfully Added!')
-        //         } else {
-        //             toast.error('Failed To Add!')
-        //         }
-        //     })
+        axios.put("/trainers", newTrainer)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.acknowledged) {
+                    toast.success('Successfully Added!')
+                } else {
+                    toast.error('Failed To Add!')
+                }
+            })
     }
-    console.log(checkboxValues)
+    // console.log(checkboxValues)
 
     // const test123 = moment().format('d');
     // console.log(test123);
