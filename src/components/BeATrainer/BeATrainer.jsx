@@ -8,10 +8,12 @@ import ToggleDays from '../WeekDayPicker/ToggleDays';
 import { useState } from 'react';
 import moment from 'moment/moment';
 import CheckboxComponent from '../CheckboxComponent/CheckboxComponent';
+import WeekDaysCheckbox from '../WeekDaysCheckbox/WeekDaysCheckbox';
 
 export default function BeATrainer() {
     const [days, setDays] = useState([]);
     const [checkboxValues, setCheckboxValues] = useState([]);
+    const [selectedDays, setSelectedDays] = useState([]);
 
     const { user } = useAuth()
 
@@ -66,6 +68,7 @@ export default function BeATrainer() {
 
     // const test123 = moment().format('d');
     // console.log(test123);
+    console.log(selectedDays)
     return (
         <Container>
             <div className='flex'>
@@ -119,8 +122,11 @@ export default function BeATrainer() {
                             <div className="flex gap-4 justify-between">
                                 <div className="w-1/2">
                                     <label htmlFor="AvalableTimeInAWeek" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Week</label>
-                                    <input type="text" name="AvalableTimeInAWeek" id="AvalableTimeInAWeek" className=" input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Week" required="" />
+                                    {/* <input type="text" name="AvalableTimeInAWeek" id="AvalableTimeInAWeek" className=" input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Week" required="" /> */}
+
                                     {/* <ToggleDays days={days} setDays={setDays}></ToggleDays> */}
+
+                                    <WeekDaysCheckbox selectedDays={selectedDays} setSelectedDays={setSelectedDays}></WeekDaysCheckbox>
 
                                 </div>
                                 <div className="w-1/2">
