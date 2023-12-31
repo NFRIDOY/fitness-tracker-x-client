@@ -63,9 +63,36 @@ export default function AllTrainers() {
                                     <th>{index + 1}</th>
                                     <td>{row?.fullName}</td>
                                     <td>{row?.email}</td>
-                                    <td>{row?.skills}</td>
-                                    <td>{row?.week}</td>
-                                    <td>{row?.day}</td>
+                                    <td className="text-center">{row?.skills?.map((skill, index) => (
+                                        <p
+                                            key={index}
+                                            className="mx-[2px]"
+                                        >
+                                            {skill}
+                                        </p>
+                                    ))}</td>
+                                    <td className="text-center">
+                                        <div className="grid grid-cols-2 gap-x-1 gap-y-0 p-0 w-fit mx-auto">
+                                            {
+                                                row?.weeklyDays?.map((day, index) => (
+                                                    <p
+                                                        key={index}
+                                                        className="mx-[0px] text-green-700 w-fit"
+                                                    >
+                                                        {day}
+                                                    </p>
+                                                ))
+                                            }
+                                        </div>
+                                    </td>
+                                    <td className="text-center">{row?.timesInDay?.map((time, index) => (
+                                        <p
+                                            key={index}
+                                            className="mx-[2px] text-green-600"
+                                        >
+                                            {time}
+                                        </p>
+                                    ))}</td>
                                     <td>{row?.experience}</td>
                                     {
                                         !isPay && <td>
