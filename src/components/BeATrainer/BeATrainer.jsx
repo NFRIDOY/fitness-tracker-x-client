@@ -9,12 +9,15 @@ import { useState } from 'react';
 import moment from 'moment/moment';
 import CheckboxComponent from '../CheckboxComponent/CheckboxComponent';
 import WeekDaysCheckbox from '../WeekDaysCheckbox/WeekDaysCheckbox';
+import AvailableTime from '../AvailableTime/AvailableTime';
 
 export default function BeATrainer() {
     const [days, setDays] = useState([]);
     const [checkboxValues, setCheckboxValues] = useState([]);
     const [selectedDays, setSelectedDays] = useState([]);
-
+    const [timeStart, setTimeStart] = useState();
+    const [timeEnd, setTimeEnd] = useState();
+    
     const { user } = useAuth()
 
     const axios = useAxios()
@@ -132,7 +135,9 @@ export default function BeATrainer() {
                                 </div>
                                 <div className="w-1/2">
                                     <label htmlFor="AvalableTimeInADay" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Day</label>
-                                    <input type="text" name="AvalableTimeInADay" id="AvalableTimeInADay" className="input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Day" required="" />
+                                    {/* <input type="text" name="AvalableTimeInADay" id="AvalableTimeInADay" className="input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Day" required="" /> */}
+                                    <AvailableTime timeStart={timeStart} setTimeStart={setTimeStart} timeEnd={timeEnd} setTimeEnd={setTimeEnd}></AvailableTime>
+                                    
                                 </div>
                             </div>
                             <div className='flex gap-4 justify-between'>
