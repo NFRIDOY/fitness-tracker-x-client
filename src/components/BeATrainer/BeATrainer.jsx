@@ -6,9 +6,12 @@ import Header1 from './../Headers/Header1';
 import Container from '../../components/Container/Container';
 import ToggleDays from '../WeekDayPicker/ToggleDays';
 import { useState } from 'react';
+import moment from 'moment/moment';
+import CheckboxComponent from '../CheckboxComponent/CheckboxComponent';
 
 export default function BeATrainer() {
     const [days, setDays] = useState([]);
+    const [checkboxValues, setCheckboxValues] = useState([]);
 
     const { user } = useAuth()
 
@@ -47,17 +50,20 @@ export default function BeATrainer() {
         // Output
         console.log(newTrainer)
         // http://localhost:5000/api/v1/addJobs
-        axios.put("/trainers", newTrainer)
-            .then(res => {
-                console.log(res.data)
-                if (res.data.acknowledged) {
-                    toast.success('Successfully Added!')
-                } else {
-                    toast.error('Failed To Add!')
-                }
-            })
+        // axios.put("/trainers", newTrainer)
+        //     .then(res => {
+        //         console.log(res.data)
+        //         if (res.data.acknowledged) {
+        //             toast.success('Successfully Added!')
+        //         } else {
+        //             toast.error('Failed To Add!')
+        //         }
+        //     })
     }
+    console.log(checkboxValues)
 
+    // const test123 = moment().format('d');
+    // console.log(test123);
     return (
         <Container>
             <div className='flex'>
@@ -92,7 +98,7 @@ export default function BeATrainer() {
                             </div>
                             <div className="w-full">
                                 <label htmlFor="Skills" className="block mb-2 text-sm font-medium text-black ">Skills</label>
-                                <ul>
+                                {/*<ul>
                                     <li>
                                         <input type='checkbox' value="Fitness Knowledge" />
                                         <label htmlFor="item1">Fitness Knowledge</label>
@@ -105,7 +111,8 @@ export default function BeATrainer() {
                                         <input type='checkbox' value="Problem-Solving" />
                                         <label htmlFor="item1">Problem-Solving</label>
                                     </li>
-                                </ul>
+                                </ul> */}
+                                <CheckboxComponent checkboxValues={checkboxValues} setCheckboxValues={setCheckboxValues}></CheckboxComponent>
                             </div>
                             <div className="flex gap-4 justify-between">
                                 <div className="w-1/2">
