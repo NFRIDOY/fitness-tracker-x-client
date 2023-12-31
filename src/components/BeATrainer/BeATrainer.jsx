@@ -29,7 +29,8 @@ export default function BeATrainer() {
         // const skills = form.skills.value || [];
         // const skills = [];
         const skills = checkboxValues;
-        const week = form.AvalableTimeInAWeek.value;
+        // const week = form.AvalableTimeInAWeek.value;
+        const week = selectedDays;
         const day = form.AvalableTimeInADay.value;
         const fbLink = form.fbLink.value;
         const experience = form.experience.value;
