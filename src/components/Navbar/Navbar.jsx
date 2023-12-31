@@ -61,7 +61,7 @@ export default function Navbar() {
                                     Trainer
                                 </NavLink>
                             </li>
-                            {/* <li>
+                            <li>
                                 <NavLink
                                     to="/Classes"
                                     className={({ isActive, isPending }) =>
@@ -70,7 +70,7 @@ export default function Navbar() {
                                 >
                                     Classes
                                 </NavLink>
-                            </li> */}
+                            </li>
                             <li className="w-fit">
                                 <NavLink
                                     to="/Dashboard"
@@ -91,7 +91,7 @@ export default function Navbar() {
                                     Community
                                 </NavLink>
                             </li>
-                            {
+                            {/* {
                                 user && <li className="w-fit">
                                     <NavLink
                                         to="/Profile"
@@ -102,7 +102,7 @@ export default function Navbar() {
                                         Profile
                                     </NavLink>
                                 </li>
-                            }
+                            } */}
 
                             <li>
                                 <NavLink
@@ -183,7 +183,7 @@ export default function Navbar() {
                                 Trainer
                             </NavLink>
                         </li>
-                        {/* <li>
+                        <li>
                             <NavLink
                                 to="/Classes"
                                 className={({ isActive, isPending }) =>
@@ -192,8 +192,8 @@ export default function Navbar() {
                             >
                                 Classes
                             </NavLink>
-                        </li> */}
-                        <li className="w-fit">
+                        </li>
+                        {/* <li className="w-fit">
                             <NavLink
                                 to="/Dashboard"
                                 className={({ isActive, isPending }) =>
@@ -202,7 +202,7 @@ export default function Navbar() {
                             >
                                 Dashboard
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li className="w-fit">
                             <NavLink
                                 to="/Community"
@@ -213,7 +213,7 @@ export default function Navbar() {
                                 Community
                             </NavLink>
                         </li>
-                        {
+                        {/* {
                             user && <li className="w-fit">
                                 <NavLink
                                     to="/Profile"
@@ -224,10 +224,8 @@ export default function Navbar() {
                                     Profile
                                 </NavLink>
                             </li>
-                        }
-
-
-                        <li>
+                        } */}
+                        {/* <li>
                             <NavLink
                                 to="/Registration"
                                 className={({ isActive, isPending }) =>
@@ -236,8 +234,7 @@ export default function Navbar() {
                             >
                                 Registration
                             </NavLink>
-
-                        </li>
+                        </li> */}
                         <li>
                             <NavLink
                                 to="/Login"
@@ -293,10 +290,12 @@ export default function Navbar() {
                                     <li>
                                         <Link to={'/profile'} className="justify-between">
                                             Profile Setting
-                                            {/* <span className="badge">New</span> */}
-
                                         </Link>
-
+                                    </li>
+                                    <li>
+                                        <Link to={'/Dashboard'} className="justify-between">
+                                            Dashboard
+                                        </Link>
                                     </li>
 
 
