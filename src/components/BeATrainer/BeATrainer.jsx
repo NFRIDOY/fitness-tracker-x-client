@@ -32,7 +32,7 @@ export default function BeATrainer() {
         const description = form.description.value;
         // const skills = form.skills.value || [];
         // const skills = [];
-        const skills = checkboxValues;
+        const skills = selectedSkills;
         // const week = form.AvalableTimeInAWeek.value;
         const week = selectedDays;
         const day = form.AvalableTimeInADay.value;
