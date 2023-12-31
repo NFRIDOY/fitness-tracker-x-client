@@ -16,7 +16,7 @@ const Skills = ({ selectedSkills, setSelectedSkills }) => {
         }
     };
 
-    const skillsSet = ['Fitness Knowledge', 'Communication', 'Problem-Solving'];
+    const skillsSet = ['Fitness Knowledge', 'Communication', 'Problem-Solving', "Adaptability", "Motivational Skills", "Organization", "Continual Learning", "Empathy and Patience", "Time Management", "Hord Work", "Technology Proficiency"];
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-3'>

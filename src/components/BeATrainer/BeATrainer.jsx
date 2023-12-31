@@ -34,8 +34,9 @@ export default function BeATrainer() {
         // const skills = [];
         const skills = selectedSkills;
         // const week = form.AvalableTimeInAWeek.value;
-        const week = selectedDays;
-        const day = form.AvalableTimeInADay.value;
+        const weeklyDays = selectedDays;
+        const timesInDay = selectedTimes;
+        // const day = form.AvalableTimeInADay.value;
         const fbLink = form.fbLink.value;
         const experience = form.experience.value;
         const photoURL = form.photoURL.value;
@@ -47,9 +48,9 @@ export default function BeATrainer() {
             description,
             skills,
             // checkboxValues, // skills array
-            week,
             // week: days,
-            day,
+            weeklyDays,
+            timesInDay,
             fbLink,
             experience,
             photoURL,
@@ -160,7 +161,7 @@ export default function BeATrainer() {
                                 {/* <input type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold " placeholder="Submit" required="" /> */}
                                 {
                                     // (checkboxValues.length && selectedDays.length && email && fullName && age && description && day && fbLink && experience && photoURL) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
-                                    (selectedSkills.length && selectedDays.length) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
+                                    (selectedSkills.length && selectedDays.length && selectedTimes.length) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
                                         Apply
                                     </button> : null
                                 }
