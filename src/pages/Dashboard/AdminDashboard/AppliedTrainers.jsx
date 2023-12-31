@@ -117,9 +117,30 @@ export default function AppliedTrainers() {
                                     <th className="text-center">{index + 1}</th>
                                     <td className="text-center">{row?.fullName}</td>
                                     <td className="text-center">{row?.email}</td>
-                                    <td className="text-center">{row?.skills}</td>
-                                    <td className="text-center">{row?.week}</td>
-                                    <td className="text-center">{row?.day}</td>
+                                    <td className="text-center">{row?.skills?.map((skill, index) => (
+                                        <span
+                                            key={index}
+                                            className="mx-[2px]"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}</td>
+                                    <td className="text-center">{row?.weeklyDays?.map((day, index) => (
+                                        <span
+                                            key={index}
+                                            className="mx-[2px] text-green-700"
+                                        >
+                                            {day}
+                                        </span>
+                                    ))}</td>
+                                    <td className="text-center">{row?.timesInDay?.map((time, index) => (
+                                        <span
+                                            key={index}
+                                            className="mx-[2px] text-green-600"
+                                        >
+                                            {time}
+                                        </span>
+                                    ))}</td>
                                     {/* <td className="text-center">{row?.experience}</td> */}
                                     {
                                         !isConfirmed && <td className="text-center">
@@ -157,11 +178,11 @@ export default function AppliedTrainers() {
                                                     </tr>
                                                     <tr>
                                                         <th>Availavle in A Week</th>
-                                                        <td>{trainerOne?.week}</td>
+                                                        <td>{trainerOne?.weeklyDays?.map((day) => day)}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Availavle in A Day</th>
-                                                        <td>{trainerOne?.day}</td>
+                                                        <td>{trainerOne?.timesInDay}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Experience</th>
