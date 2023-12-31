@@ -54,19 +54,19 @@ export default function Forum() {
     }
     return (
         <div>
-            <form onSubmit={handleForum} className="border-8 card w-96 bg-base-100 shadow-xl mx-auto my-32">               <div className="card-body">
+            <form onSubmit={handleForum} className="border-8 card w-full bg-base-100 shadow-xl mx-auto my-10">               <div className="card-body">
                 {/* <h2 className="card-title">Your Name: {user.displayName}</h2>
                     <h2 className="card-title text-gray-300">{dashboardUser}</h2> */}
                 <p>
                     {/* <input type="text" placeholder="Type here"  /> */}
                     {/* <textarea name="" id="" cols="30" rows="10" className="h-40 input input-bordered w-full max-w-xs" ></textarea> */}
-                    <label className="form-control w-full max-w-xs">
+                    <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text card-title">Your Name: {user.displayName}</span>
                             <span className="label-text-alt italic">Your Are: {dashboardUser}</span>
                         </div>
                         <div className='space-y-3'>
-                            <input type="text" name='title' id='title' placeholder="Title" className="input input-bordered w-full max-w-xs" />
+                            <input type="text" name='title' id='title' placeholder="Title" className="input input-bordered w-full max-w-full" />
                             <textarea name='description' id='description' className="textarea textarea-bordered w-full h-24" placeholder="Description"></textarea>
                         </div>
                         <div className="label">

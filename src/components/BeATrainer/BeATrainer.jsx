@@ -103,7 +103,7 @@ export default function BeATrainer() {
                                 </div>
                                 <div className="w-full">
                                     <label htmlFor="description" className="block mb-2 text-sm font-medium text-black ">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="3" className=" input input-bordered w-full max-w-xs" placeholder="Description" required=""></textarea>
+                                    <input name="description" id="description" cols="30" rows="3" className=" input input-bordered w-full max-w-xs" placeholder="Description" required=""></input>
                                     {/* <input type="text" name="description" id="description" className=" bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400  focus:ring-blue-500 focus:border-blue-500" placeholder="Job Title" required="" /> */}
                                 </div>
                             </div>
