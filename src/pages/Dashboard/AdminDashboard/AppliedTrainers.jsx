@@ -105,8 +105,8 @@ export default function AppliedTrainers() {
                                 <th className="text-center">Name</th>
                                 <th className="text-center">Email</th>
                                 <th className="text-center">Skills</th>
-                                <th className="text-center">Week</th>
-                                <th className="text-center">Day</th>
+                                <th className="text-center">Weekly Days</th>
+                                <th className="text-center">Times In A Day</th>
                                 {/* <th className="text-center">experience</th> */}
                                 <th className="text-center">Option</th>
                             </tr>
@@ -118,28 +118,34 @@ export default function AppliedTrainers() {
                                     <td className="text-center">{row?.fullName}</td>
                                     <td className="text-center">{row?.email}</td>
                                     <td className="text-center">{row?.skills?.map((skill, index) => (
-                                        <span
+                                        <p
                                             key={index}
                                             className="mx-[2px]"
                                         >
                                             {skill}
-                                        </span>
+                                        </p>
                                     ))}</td>
-                                    <td className="text-center">{row?.weeklyDays?.map((day, index) => (
-                                        <span
-                                            key={index}
-                                            className="mx-[2px] text-green-700"
-                                        >
-                                            {day}
-                                        </span>
-                                    ))}</td>
+                                    <td className="text-center">
+                                        <div className="grid grid-cols-2 gap-x-1 gap-y-0 p-0 w-fit mx-auto">
+                                            {
+                                                row?.weeklyDays?.map((day, index) => (
+                                                    <p
+                                                        key={index}
+                                                        className="mx-[0px] text-green-700 w-fit"
+                                                    >
+                                                        {day}
+                                                    </p>
+                                                ))
+                                            }
+                                        </div>
+                                    </td>
                                     <td className="text-center">{row?.timesInDay?.map((time, index) => (
-                                        <span
+                                        <p
                                             key={index}
                                             className="mx-[2px] text-green-600"
                                         >
                                             {time}
-                                        </span>
+                                        </p>
                                     ))}</td>
                                     {/* <td className="text-center">{row?.experience}</td> */}
                                     {
