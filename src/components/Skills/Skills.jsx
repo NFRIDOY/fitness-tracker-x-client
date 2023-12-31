@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 import PropTypes from 'prop-types'; // ES6
 
-const Skills = ({ checkboxValues, setCheckboxValues }) => {
+const Skills = ({ selectedSkills, setSelectedSkills }) => {
     // const [checkboxValues, setCheckboxValues] = useState([]);
 
     const handleCheckboxChange = (event) => {
@@ -9,16 +9,33 @@ const Skills = ({ checkboxValues, setCheckboxValues }) => {
 
         // If checked, add the value to the array, else remove it
         if (checked) {
-            setCheckboxValues([...checkboxValues, value]);
+            setSelectedSkills([...selectedSkills, value]);
         } else {
-            const updatedValues = checkboxValues.filter((val) => val !== value);
-            setCheckboxValues(updatedValues);
+            const updatedValues = selectedSkills.filter((val) => val !== value);
+            setSelectedSkills(updatedValues);
         }
     };
 
+    const skillsSet = ['Fitness Knowledge', 'Communication', 'Problem-Solving'];
+
     return (
-        <div className='flex gap-4'>
-            <label>
+        <div className='grid grid-cols-1 lg:grid-cols-3'>
+            {
+                skillsSet.map((skill, index) => (
+                    <label key={index}>
+                        <input
+                            type="checkbox"
+                            value={skill}
+                            onChange={handleCheckboxChange}
+                            checked={selectedSkills.includes(skill)}
+                        />
+                        <span className='mx-2'>
+                            {skill}
+                        </span>
+                    </label>)
+                )
+            }
+            {/* <label>
                 <input
                     type="checkbox"
                     value="Fitness Knowledge"
@@ -51,7 +68,7 @@ const Skills = ({ checkboxValues, setCheckboxValues }) => {
                 <span className='ml-2'>
                     Problem-Solving
                 </span>
-            </label>
+            </label> */}
             {/* Add more checkboxes in a similar fashion */}
         </div>
     );
@@ -61,6 +78,6 @@ export default Skills;
 
 // Props Validation
 Skills.propTypes = {
-    checkboxValues: PropTypes.array,
-    setCheckboxValues: PropTypes.node
+    selectedSkills: PropTypes.array,
+    setSelectedSkills: PropTypes.node
 }

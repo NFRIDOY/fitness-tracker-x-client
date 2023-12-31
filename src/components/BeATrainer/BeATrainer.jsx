@@ -7,17 +7,18 @@ import Container from '../../components/Container/Container';
 import ToggleDays from '../WeekDayPicker/ToggleDays';
 import { useState } from 'react';
 import moment from 'moment/moment';
-import CheckboxComponent from '../CheckboxComponent/CheckboxComponent';
 import WeekDaysCheckbox from '../WeekDaysCheckbox/WeekDaysCheckbox';
 import AvailableTime from '../AvailableTime/AvailableTime';
+import Skills from '../Skills/Skills';
 
 export default function BeATrainer() {
     const [days, setDays] = useState([]);
-    const [checkboxValues, setCheckboxValues] = useState([]);
+    const [selectedSkills, setSelectedSkills] = useState([]);
     const [selectedDays, setSelectedDays] = useState([]);
-    const [timeStart, setTimeStart] = useState();
-    const [timeEnd, setTimeEnd] = useState();
-    
+    // const [timeStart, setTimeStart] = useState();
+    // const [timeEnd, setTimeEnd] = useState();
+    const [selectedTimes, setSelectedTimes] = useState([]);
+
     const { user } = useAuth()
 
     const axios = useAxios()
@@ -75,16 +76,16 @@ export default function BeATrainer() {
     console.log(selectedDays)
     return (
         <Container>
-            <div className='flex'>
-                <div className="w-1/2">
+            <div className='flex flex-col lg:flex-row'>
+                <div className="w-full lg:w-1/2 p-0 m-0">
                     <Header1>
                         Be A Trainer
                     </Header1>
                 </div>
                 {
-                    user && <div className="w-1/2">
+                    user && <div className="w-full lg:w-1/2 px-10 lg:p-0">
                         <form className="w-full space-y-3" onSubmit={handleAddTrainer}>
-                            <div className='flex gap-4 justify-between'>
+                            <div className='flex flex-col lg:flex-row gap-4 justify-between'>
                                 <div className="w-full">
                                     <label htmlFor="FullName" className="block mb-2 text-sm font-medium text-black ">Full Name</label>
                                     <input type="text" name="FullName" id="FullName" className="input input-bordered w-full max-w-xs" placeholder="Full Name" required="" />
@@ -94,7 +95,7 @@ export default function BeATrainer() {
                                     <input disabled defaultValue={user.email} type="email" name="email" id="email" className=" input input-bordered w-full max-w-xs" placeholder={user.email} required="" />
                                 </div>
                             </div>
-                            <div className='flex gap-4'>
+                            <div className='flex flex-col lg:flex-row gap-4'>
                                 <div className="w-full">
                                     <label htmlFor="age" className="block mb-2 text-sm font-medium text-black ">Age</label>
                                     <input type="number" name="age" id="age" className=" input input-bordered w-full max-w-xs" placeholder="Age" required="" />
@@ -121,23 +122,23 @@ export default function BeATrainer() {
                                         <label htmlFor="item1">Problem-Solving</label>
                                     </li>
                                 </ul> */}
-                                <CheckboxComponent checkboxValues={checkboxValues} setCheckboxValues={setCheckboxValues}></CheckboxComponent>
+                                <Skills selectedSkills={selectedSkills} setSelectedSkills={setSelectedSkills}></Skills>
                             </div>
-                            <div className="flex gap-4 justify-between">
-                                <div className="w-1/2">
-                                    <label htmlFor="AvalableTimeInAWeek" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Week</label>
-                                    {/* <input type="text" name="AvalableTimeInAWeek" id="AvalableTimeInAWeek" className=" input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Week" required="" /> */}
+                            <div className="w-full">
+                                <label htmlFor="AvalableTimeInAWeek" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Week</label>
+                                {/* <input type="text" name="AvalableTimeInAWeek" id="AvalableTimeInAWeek" className=" input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Week" required="" /> */}
 
-                                    {/* <ToggleDays days={days} setDays={setDays}></ToggleDays> */}
+                                {/* <ToggleDays days={days} setDays={setDays}></ToggleDays> */}
 
-                                    <WeekDaysCheckbox selectedDays={selectedDays} setSelectedDays={setSelectedDays}></WeekDaysCheckbox>
+                                <WeekDaysCheckbox selectedDays={selectedDays} setSelectedDays={setSelectedDays}></WeekDaysCheckbox>
 
-                                </div>
-                                <div className="w-1/2">
+                            </div>
+                            <div className="flex gap-4 ">
+                                <div className="w-full">
                                     <label htmlFor="AvalableTimeInADay" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Day</label>
                                     {/* <input type="text" name="AvalableTimeInADay" id="AvalableTimeInADay" className="input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Day" required="" /> */}
-                                    <AvailableTime timeStart={timeStart} setTimeStart={setTimeStart} timeEnd={timeEnd} setTimeEnd={setTimeEnd}></AvailableTime>
-                                    
+                                    {/* <AvailableTime timeStart={timeStart} setTimeStart={setTimeStart} timeEnd={timeEnd} setTimeEnd={setTimeEnd}></AvailableTime> */}
+                                    <AvailableTime selectedTimes={selectedTimes} setSelectedTimes={setSelectedTimes}></AvailableTime>
                                 </div>
                             </div>
                             <div className='flex gap-4 justify-between'>
@@ -154,16 +155,16 @@ export default function BeATrainer() {
                                 <label htmlFor="photoURL" className='block mb-2 text-sm font-medium text-black '>Your Photo URL</label>
                                 <input type="text" id="photoURL" name="photoURL" className='input input-bordered w-full max-w-xs' min="0" placeholder="photo URL" required />
                             </div>
-                                <div className="w-96 mx-auto">
-                                    {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-black ">Your Job Title</label> */}
-                                    {/* <input type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold " placeholder="Submit" required="" /> */}
-                                    {
-                                        // (checkboxValues.length && selectedDays.length && email && fullName && age && description && day && fbLink && experience && photoURL) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
-                                        (checkboxValues.length && selectedDays.length) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
-                                            Apply
-                                        </button> : null
-                                    }
-                                </div>
+                            <div className="w-96 mx-auto">
+                                {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-black ">Your Job Title</label> */}
+                                {/* <input type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold " placeholder="Submit" required="" /> */}
+                                {
+                                    // (checkboxValues.length && selectedDays.length && email && fullName && age && description && day && fbLink && experience && photoURL) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
+                                    (selectedSkills.length && selectedDays.length) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
+                                        Apply
+                                    </button> : null
+                                }
+                            </div>
                         </form>
                     </div >
                 }
