@@ -12,12 +12,15 @@ import AvailableTime from '../AvailableTime/AvailableTime';
 import Skills from '../Skills/Skills';
 
 export default function BeATrainer() {
-    const [days, setDays] = useState([]);
+
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [selectedDays, setSelectedDays] = useState([]);
     // const [timeStart, setTimeStart] = useState();
     // const [timeEnd, setTimeEnd] = useState();
     const [selectedTimes, setSelectedTimes] = useState([]);
+
+    const timesInDay = ['7:00 AM-8:00 AM', '8:00 AM-9:00 AM', '9:00 AM-10:00 AM', '10:00 AM-11:00 AM', '11:00 AM-12:00 PM', '12:00 PM-1:00 PM', '1:00 PM-2:00 PM', '2:00 PM-3:00 PM', '3:00 PM-4:00 PM', '4:00 PM-5:00 PM', '5:00 PM-6:00 PM', '6:00 PM-7:00 PM', '7:00 PM-8:00 PM', '8:00 PM-9:00 PM', '9:00 PM-10:00 PM', '10:00 PM-11:00 PM'];
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     const { user } = useAuth()
 
@@ -75,6 +78,7 @@ export default function BeATrainer() {
     // const test123 = moment().format('d');
     // console.log(test123);
     console.log(selectedDays)
+    
     return (
         <Container>
             <div className='flex flex-col lg:flex-row'>
@@ -131,7 +135,7 @@ export default function BeATrainer() {
 
                                 {/* <ToggleDays days={days} setDays={setDays}></ToggleDays> */}
 
-                                <WeekDaysCheckbox selectedDays={selectedDays} setSelectedDays={setSelectedDays}></WeekDaysCheckbox>
+                                <WeekDaysCheckbox selectedDays={selectedDays} setSelectedDays={setSelectedDays} daysOfWeek={daysOfWeek}></WeekDaysCheckbox>
 
                             </div>
                             <div className="flex gap-4 ">
@@ -139,7 +143,7 @@ export default function BeATrainer() {
                                     <label htmlFor="AvalableTimeInADay" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Day</label>
                                     {/* <input type="text" name="AvalableTimeInADay" id="AvalableTimeInADay" className="input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Day" required="" /> */}
                                     {/* <AvailableTime timeStart={timeStart} setTimeStart={setTimeStart} timeEnd={timeEnd} setTimeEnd={setTimeEnd}></AvailableTime> */}
-                                    <AvailableTime selectedTimes={selectedTimes} setSelectedTimes={setSelectedTimes}></AvailableTime>
+                                    <AvailableTime selectedTimes={selectedTimes} setSelectedTimes={setSelectedTimes} timesInDay={timesInDay}></AvailableTime>
                                 </div>
                             </div>
                             <div className='flex gap-4 justify-between'>

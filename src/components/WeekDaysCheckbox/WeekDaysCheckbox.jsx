@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 import PropTypes from 'prop-types'; // ES6
 
-const WeekDaysCheckbox = ({selectedDays, setSelectedDays}) => {
+const WeekDaysCheckbox = ({selectedDays, setSelectedDays, daysOfWeek}) => {
     // const [selectedDays, setSelectedDays] = useState([]);
 
     const handleCheckboxChange = (event) => {
@@ -17,7 +17,7 @@ const WeekDaysCheckbox = ({selectedDays, setSelectedDays}) => {
     };
 
     // const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    // const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-7'>
@@ -43,5 +43,6 @@ export default WeekDaysCheckbox;
 // Props Validation
 WeekDaysCheckbox.propTypes = {
     selectedDays: PropTypes.array,
-    setSelectedDays: PropTypes.node
+    setSelectedDays: PropTypes.node,
+    daysOfWeek: PropTypes.node
 }
