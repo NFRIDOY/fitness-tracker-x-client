@@ -13,19 +13,23 @@ export default function AddClasses() {
     const axios = useAxios()
 
     const [selectedSkills, setSelectedSkills] = useState([]);
-    const [selectedDays, setSelectedDays] = useState([]);
     // const [timeStart, setTimeStart] = useState();
     // const [timeEnd, setTimeEnd] = useState();
-    const [selectedTimes, setSelectedTimes] = useState([]);
     // TODO Load time from DB
-    const timesInDay = ['7:00 AM-8:00 AM', '8:00 AM-9:00 AM', '9:00 AM-10:00 AM', '10:00 AM-11:00 AM', '11:00 AM-12:00 PM', '12:00 PM-1:00 PM', '1:00 PM-2:00 PM', '2:00 PM-3:00 PM', '3:00 PM-4:00 PM', '4:00 PM-5:00 PM', '5:00 PM-6:00 PM', '6:00 PM-7:00 PM', '7:00 PM-8:00 PM', '8:00 PM-9:00 PM', '9:00 PM-10:00 PM', '10:00 PM-11:00 PM'];
+    // const timesInDay = ['7:00 AM-8:00 AM', '8:00 AM-9:00 AM', '9:00 AM-10:00 AM', '10:00 AM-11:00 AM', '11:00 AM-12:00 PM', '12:00 PM-1:00 PM', '1:00 PM-2:00 PM', '2:00 PM-3:00 PM', '3:00 PM-4:00 PM', '4:00 PM-5:00 PM', '5:00 PM-6:00 PM', '6:00 PM-7:00 PM', '7:00 PM-8:00 PM', '8:00 PM-9:00 PM', '9:00 PM-10:00 PM', '10:00 PM-11:00 PM'];
+    let timesInDay = ['7:00 AM-8:00 AM', '8:00 AM-9:00 AM', '9:00 AM-10:00 AM', '10:00 AM-11:00 AM', '11:00 AM-12:00 PM', '12:00 PM-1:00 PM', '1:00 PM-2:00 PM', '2:00 PM-3:00 PM', '3:00 PM-4:00 PM', '4:00 PM-5:00 PM', '5:00 PM-6:00 PM', '6:00 PM-7:00 PM', '7:00 PM-8:00 PM', '8:00 PM-9:00 PM', '9:00 PM-10:00 PM', '10:00 PM-11:00 PM'];
+    // TODO Load Data from DB 
+    // const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    let daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const [selectedDays, setSelectedDays] = useState(daysOfWeek);
+    const [selectedTimes, setSelectedTimes] = useState(timesInDay);
 
     const handleAddTrainer = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = user.email
         const className = form.className.value;
-        const age = parseInt(form.age.value);
+        // const age = parseInt(form.age.value);
         const description = form.description.value;
         // const skills = form.skills.value || [];
         // const skills = [];
@@ -41,7 +45,7 @@ export default function AddClasses() {
         const newTrainer = {
             email,
             className,
-            age,
+            // age,
             description,
             skills,
             // checkboxValues, // skills array
@@ -81,24 +85,24 @@ export default function AddClasses() {
                 </div>
             </div>
             <div className='flex flex-col lg:flex-row gap-4'>
-                <div className="w-full">
+                {/* <div className="w-full">
                     <label htmlFor="age" className="block mb-2 text-sm font-medium text-black ">Age</label>
                     <input type="number" name="age" id="age" className=" input input-bordered w-full max-w-xs" placeholder="Age" required="" />
-                </div>
+                </div> */}
                 <div className="w-full">
                     <label htmlFor="description" className="block mb-2 text-sm font-medium text-black ">Description</label>
                     <input name="description" id="description" cols="30" rows="3" className=" input input-bordered w-full max-w-xs" placeholder="Description" required=""></input>
                     {/* <input type="text" name="description" id="description" className=" bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400  focus:ring-blue-500 focus:border-blue-500" placeholder="Job Title" required="" /> */}
                 </div>
             </div>
-            
+
             <div className="w-full">
                 <label htmlFor="AvalableTimeInAWeek" className="block mb-2 text-sm font-medium text-black ">Avalable Time In A Week</label>
                 {/* <input type="text" name="AvalableTimeInAWeek" id="AvalableTimeInAWeek" className=" input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Week" required="" /> */}
 
                 {/* <ToggleDays days={days} setDays={setDays}></ToggleDays> */}
 
-                <WeekDaysCheckbox selectedDays={selectedDays} setSelectedDays={setSelectedDays}></WeekDaysCheckbox>
+                <WeekDaysCheckbox selectedDays={selectedDays} setSelectedDays={setSelectedDays} daysOfWeek={daysOfWeek}></WeekDaysCheckbox>
 
             </div>
             <div className="flex gap-4 ">
@@ -106,7 +110,7 @@ export default function AddClasses() {
                     <label htmlFor="ClassTime" className="block mb-2 text-sm font-medium text-black ">Class Time</label>
                     {/* <input type="text" name="AvalableTimeInADay" id="AvalableTimeInADay" className="input input-bordered w-full max-w-xs" placeholder="Avalable Time In A Day" required="" /> */}
                     {/* <AvailableTime timeStart={timeStart} setTimeStart={setTimeStart} timeEnd={timeEnd} setTimeEnd={setTimeEnd}></AvailableTime> */}
-                    <AvailableTime selectedTimes={selectedTimes} setSelectedTimes={setSelectedTimes}></AvailableTime>
+                    <AvailableTime selectedTimes={selectedTimes} setSelectedTimes={setSelectedTimes} timesInDay={timesInDay}></AvailableTime>
                 </div>
             </div>
             <div className='flex gap-4 justify-between'>
