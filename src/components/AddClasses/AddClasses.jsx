@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAxios from "../../hook/useAxios";
 import useAuth from "../../hook/useAuth";
 import toast from "react-hot-toast";
@@ -21,8 +21,24 @@ export default function AddClasses() {
     // TODO Load Data from DB 
     // const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     let daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
     const [selectedDays, setSelectedDays] = useState(daysOfWeek);
     const [selectedTimes, setSelectedTimes] = useState(timesInDay);
+
+    useEffect(() => {
+        axios.get(`/availableClassTimes?email=${user.email}`)
+            .then((res) => {
+                console.log(res.data.weeklyDays);
+                console.log(res.data.timesInDay);
+                daysOfWeek = res.data.weeklyDays;
+                timesInDay = res.data.timesInDay;
+
+                setSelectedDays(res.data.weeklyDays);
+                setSelectedTimes(res.data.timesInDay);
+            })
+    }, [])
+
+
 
     const handleAddTrainer = (e) => {
         e.preventDefault();
@@ -42,26 +58,26 @@ export default function AddClasses() {
         const experience = form.experience.value;
         const photoURL = form.photoURL.value;
 
-        const newTrainer = {
+        const newClass = {
             email,
             className,
             // age,
             description,
-            skills,
+            // skills,
             // checkboxValues, // skills array
             // week: days,
             weeklyDays,
             timesInDay,
-            fbLink,
-            experience,
-            photoURL,
-            role: 'member',
-            status: "pending"
+            // fbLink,
+            // experience,
+            // photoURL,
+            // role: 'member',
+            // status: "pending"
         }
         // Output
-        console.log(newTrainer)
-        // http://localhost:5000/api/v1/addJobs
-        axios.post("/classes", newTrainer)
+        console.log(newClass)
+        // http://localhost:5000/api/v1/classes
+        axios.post(`/classes`, newClass)
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {
@@ -73,7 +89,7 @@ export default function AddClasses() {
     }
 
     return (
-        <form className="w-full space-y-3" onSubmit={handleAddTrainer}>
+        <form className="w-full space-y-3 mt-5" onSubmit={handleAddTrainer}>
             <div className='flex flex-col lg:flex-row gap-4 justify-between'>
                 <div className="w-full">
                     <label htmlFor="className" className="block mb-2 text-sm font-medium text-black ">Class Name</label>
@@ -113,7 +129,7 @@ export default function AddClasses() {
                     <AvailableTime selectedTimes={selectedTimes} setSelectedTimes={setSelectedTimes} timesInDay={timesInDay}></AvailableTime>
                 </div>
             </div>
-            <div className='flex gap-4 justify-between'>
+            {/* <div className='flex gap-4 justify-between'>
                 <div className="w-1/2">
                     <label htmlFor="fbLink" className='block mb-2 text-sm font-medium text-black '>Facebook Link</label>
                     <input type="text" id="fbLink" name="fbLink" className='input input-bordered w-full max-w-xs' placeholder="Facebook Link" required />
@@ -122,20 +138,15 @@ export default function AddClasses() {
                     <label htmlFor="experience" className='block mb-2 text-sm font-medium text-black '>Years of Experience</label>
                     <input type="number" id="experience" name="experience" className='input input-bordered w-full max-w-xs' min="0" placeholder="Experience" required />
                 </div>
-            </div>
-            <div className="w-1/2 gap-4">
+            </div> */}
+            {/* <div className="w-1/2 gap-4">
                 <label htmlFor="photoURL" className='block mb-2 text-sm font-medium text-black '>Your Photo URL</label>
                 <input type="text" id="photoURL" name="photoURL" className='input input-bordered w-full max-w-xs' min="0" placeholder="photo URL" required />
-            </div>
-            <div className="w-96 mx-auto">
-                {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-black ">Your Job Title</label> */}
-                {/* <input type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold " placeholder="Submit" required="" /> */}
-                {
-                    // (checkboxValues.length && selectedDays.length && email && fullName && age && description && day && fbLink && experience && photoURL) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
-                    (selectedSkills.length && selectedDays.length && selectedTimes.length) ? <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold ">
-                        Apply
-                    </button> : null
-                }
+            </div> */}
+            <div className="w-96 mx-auto ">
+                <button type="submit" name="submit" id="submit" className="input input-bordered w-full max-w-xs bg-green-500 hover:bg-green-600 border-2 border-green-600 text-white font-bold mt-12">
+                    Apply
+                </button>
             </div>
         </form>
     )
