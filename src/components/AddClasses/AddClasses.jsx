@@ -12,7 +12,8 @@ export default function AddClasses() {
 
     const axios = useAxios()
 
-    const [selectedSkills, setSelectedSkills] = useState([]);
+    const [dashboardUser, setDashboardUser] = useState({});
+    // const [selectedSkills, setSelectedSkills] = useState([]);
     // const [timeStart, setTimeStart] = useState();
     // const [timeEnd, setTimeEnd] = useState();
     // TODO Load time from DB
@@ -36,6 +37,13 @@ export default function AddClasses() {
                 setSelectedDays(res.data.weeklyDays);
                 setSelectedTimes(res.data.timesInDay);
             })
+        axios.get(`/users?email=${user.email}`)
+            .then((res) => {
+                console.log(res.data);
+
+                setDashboardUser(res.data);
+
+            })
     }, [])
 
 
@@ -49,14 +57,14 @@ export default function AddClasses() {
         const description = form.description.value;
         // const skills = form.skills.value || [];
         // const skills = [];
-        const skills = selectedSkills;
+        // const skills = selectedSkills;
         // const week = form.AvalableTimeInAWeek.value;
         const weeklyDays = selectedDays;
         const timesInDay = selectedTimes;
         // const day = form.AvalableTimeInADay.value;
-        const fbLink = form.fbLink.value;
-        const experience = form.experience.value;
-        const photoURL = form.photoURL.value;
+        // const fbLink = form.fbLink.value;
+        // const experience = form.experience.value;
+        // const photoURL = form.photoURL.value;
 
         const newClass = {
             email,
@@ -71,8 +79,8 @@ export default function AddClasses() {
             // fbLink,
             // experience,
             // photoURL,
-            // role: 'member',
-            // status: "pending"
+            role: dashboardUser.role,
+            status: dashboardUser.status
         }
         // Output
         console.log(newClass)

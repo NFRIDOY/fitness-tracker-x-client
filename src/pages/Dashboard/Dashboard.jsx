@@ -17,7 +17,7 @@ export default function Dashboard() {
         axios.get(`/dashboard?email=${user.email}`)
             .then(res => {
                 setDashboardUser(res.data.role)
-                console.log(res.data.role)
+                // console.log(res.data.role)
             })
     }, [])
 
