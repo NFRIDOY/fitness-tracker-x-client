@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet";
+import Header1 from "../../components/Headers/Header1";
+import ClassesCardContainer from "../../components/ClassesCardContainer/ClassesCardContainer";
 
 
 export default function Classes() {
@@ -7,7 +9,13 @@ export default function Classes() {
             <Helmet>
                 <title>Fitness Tracker | Classes</title>
             </Helmet>
-            Classes
+            {/* Classes Card Container */}
+            <Header1>
+                Classes
+            </Header1>
+            <section>
+                <ClassesCardContainer></ClassesCardContainer>
+            </section>
         </div>
     )
 }
