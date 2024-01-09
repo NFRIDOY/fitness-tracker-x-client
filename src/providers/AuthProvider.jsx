@@ -10,7 +10,7 @@ export default function AuthProvider({ children }) {
 
     const axios = useAxios()
 
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState({})
     const [loading, setLoading] = useState(true)
 
     const auth = getAuth(app);
